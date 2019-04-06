@@ -70,6 +70,12 @@ class App extends Component {
       </div>
     );
   }
+  
+  logout = event => {
+    localStorage.removeItem("token");
+
+    this.props.history.push("/login");
+  };
 }
 
 export default withRouter(App);
