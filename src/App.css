@@ -31,3 +31,22 @@
     transform: rotate(360deg);
   }
 }
+
+.ReactMap, .bg-video, .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid red;
+  height: 400px;
+  margin: 0;
+}
+
+.bg-video {
+  border: 2px solid blue;
+}
+
+.footer {
+  border: 2px solid lime;
+  height: 150px;
+}
