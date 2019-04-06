@@ -4,6 +4,7 @@ const Dashboard = () => {
     return(
         <div>
             <h1>Dynamic Dashboard Page Goes Here</h1>
+            <h2>Student Information Here</h2>
         </div>
     );
 }
