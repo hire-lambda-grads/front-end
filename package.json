@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "node-sass": "^4.11.0",
+=======
+    "axios": "^0.18.0",
+>>>>>>> d397c6529047bd2d87a77ac7b853761e83793988
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
