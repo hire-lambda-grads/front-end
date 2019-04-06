@@ -33,6 +33,7 @@
 }
 
 .ReactMap, .bg-video, .footer {
+  background-color: silver;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,6 +45,7 @@
 
 .bg-video {
   border: 2px solid blue;
+  background-color: dimgray;
 }
 
 .footer {
