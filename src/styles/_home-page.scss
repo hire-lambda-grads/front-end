@@ -1,0 +1,13 @@
+// Home page
+
+/* Variables example
+$primary-color: #333;
+*/
+
+
+// DELETE THIS LINE BEFORE START
+
+.homepage {
+    height: 100vh;
+    @include box-align()
+}

@@ -1,0 +1,21 @@
+// Global scss
+
+/* Variables example
+$primary-color: #333;
+*/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: $bag-color;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: $title-weigth;
+    /* Sass - Test delete it anytime */
+}
