@@ -5,7 +5,11 @@ import { withRouter } from 'react-router-dom';
 class Signup extends React.Component {
 	state = {
 		username: '',
-		password: ''
+		password: '',
+		first_name: '',
+		last_name: '',
+		email: '',
+		role_id: 1
 	};
 
 	render() {
@@ -51,6 +55,39 @@ class Signup extends React.Component {
 							/>
 						</div>
 						<div>
+							<label htmlFor="first_name" />
+							<input
+								name="first_name"
+								id="first_name"
+								value={this.state.first_name}
+								onChange={this.handleInputChange}
+								type="text"
+								placeholder="First Name"
+							/>
+						</div>
+						<div>
+							<label htmlFor="last_name" />
+							<input
+								name="last_name"
+								id="last_name"
+								value={this.state.last_name}
+								onChange={this.handleInputChange}
+								type="text"
+								placeholder="Last Name"
+							/>
+						</div>
+						<div>
+							<label htmlFor="email" />
+							<input
+								name="email"
+								id="email"
+								value={this.state.email}
+								onChange={this.handleInputChange}
+								type="text"
+								placeholder="Email Address"
+							/>
+						</div>
+						<div>
 							<button className="btn-red" type="submit">
 								Register <i className="far fa-clipboard" />
 							</button>
@@ -63,20 +100,21 @@ class Signup extends React.Component {
 
 	handleInputChange = event => {
 		const { name, value } = event.target;
-
+		console.log(value);
 		this.setState({ [name]: value });
 	};
 
 	handleSubmit = event => {
+		console.log('handling submit');
 		event.preventDefault();
 
-		const endpoint = 'http://localhost:3300/api/register';
+		const endpoint = 'https://halg-backend.herokuapp.com/api/auth/register';
 
 		axios
 			.post(endpoint, this.state)
 			.then(res => {
 				localStorage.setItem('token', res.data.token);
-
+				console.log('successfully submitted');
 				this.props.history.push('/dashboard');
 			})
 			.catch(error => console.error(error));
