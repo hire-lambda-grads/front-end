@@ -4,11 +4,10 @@ import { withRouter } from 'react-router-dom';
 
 class Signup extends React.Component {
 	state = {
-		username: '',
+		email: '',
 		password: '',
 		first_name: '',
 		last_name: '',
-		email: '',
 		role_id: 1
 	};
 
@@ -33,14 +32,14 @@ class Signup extends React.Component {
 				<div className="form-box">
 					<form onSubmit={this.handleSubmit}>
 						<div>
-							<label htmlFor="username" />
+							<label htmlFor="email" />
 							<input
-								name="username"
-								id="username"
-								value={this.state.username}
+								name="email"
+								id="email"
+								value={this.state.email}
 								onChange={this.handleInputChange}
 								type="text"
-								placeholder="Username"
+								placeholder="Email Address"
 							/>
 						</div>
 						<div>
@@ -74,17 +73,6 @@ class Signup extends React.Component {
 								onChange={this.handleInputChange}
 								type="text"
 								placeholder="Last Name"
-							/>
-						</div>
-						<div>
-							<label htmlFor="email" />
-							<input
-								name="email"
-								id="email"
-								value={this.state.email}
-								onChange={this.handleInputChange}
-								type="text"
-								placeholder="Email Address"
 							/>
 						</div>
 						<div>

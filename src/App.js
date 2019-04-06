@@ -25,17 +25,17 @@ class App extends Component {
 								Home
 							</NavLink>
 
-							<NavLink to="/about">About</NavLink>
+							<NavLink to="/about">About Us</NavLink>
 
 							<NavLink to="/dashboard">Dashboard</NavLink>
 
 							<NavLink to="/login">Login</NavLink>
 
-							<NavLink to="/signup">Signup</NavLink>
+							<NavLink to="/signup">Sign Up</NavLink>
 						</nav>
 
 						<button className="btn-red" onClick={this.logout}>
-							Logout <i className="fas fa-sign-out-alt" />
+							Log Out <i className="fas fa-sign-out-alt" />
 						</button>
 					</div>
 				</header>
