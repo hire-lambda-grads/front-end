@@ -5,7 +5,7 @@ import './App.css';
 
 import About from './components/about/About';
 import Dashboard from './components/dashboard/Dashboard';
-import Landing from './components/landing/Landing';
+import Home from './components/home/Home';
 import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 
@@ -16,7 +16,7 @@ class App extends Component {
       <div className="App">
         <header>
           <nav>
-            <NavLink exact to="/">Landing</NavLink>
+            <NavLink exact to="/">Home</NavLink>
             &nbsp;|&nbsp;
             <NavLink to="/about">About</NavLink>
             &nbsp;|&nbsp;
@@ -35,7 +35,7 @@ class App extends Component {
             path="/"
             render={props => {
               console.log(props);
-              return <Landing {...props} />;
+              return <Home {...props} />;
             }}
           />
           <Route

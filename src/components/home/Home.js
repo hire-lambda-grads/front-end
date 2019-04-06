@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactMap from '../reactMap/ReactMap';
 
-const Landing = () => {
+const Home = () => {
     return(
         <div>
-            <h1>Landing Page</h1>
+            <h1>Home Page</h1>
             <ReactMap />
         </div>
     );
 }
 
-export default Landing;
+export default Home;
