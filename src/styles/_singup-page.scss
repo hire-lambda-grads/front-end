@@ -1,0 +1,53 @@
+.signup-page {
+    .banner-signup {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("./assets/register-image.jpg");
+        background-image: -webkit-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("./assets/register-image.jpg");
+        background-image: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("./assets/register-image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-attachment: fixed;
+
+        @include box-align();
+        flex-direction: column;
+        min-height: 300px;
+        color: $light-color;
+        text-transform: uppercase;
+
+
+        .code-logos {
+            @include box-align();
+            font-size: 3.5rem;
+            color: $bag-color;
+            margin-top: 20px;
+
+            i {
+                margin: 7px;
+            }
+        }
+    }
+
+    .form-box {
+        @include box-align();
+        margin-top: 100px;
+
+        form {
+            @include box-align();
+            flex-direction: column;
+
+            input {
+                margin: 5px;
+                border: none;
+                font-size: 1.8rem;
+                padding: 5px 10px;
+
+            }
+
+            .btn-red {
+                margin-top: 20px;
+                width: 200px;
+            }
+
+        }
+    }
+}
