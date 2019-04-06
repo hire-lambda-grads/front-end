@@ -3,7 +3,7 @@ import React from 'react';
 const ReactMap = () => {
     return(
         <div>
-            <h1>ReactMap Page</h1>
+            <h1>Super Dope ReactMap Goes Here</h1>
         </div>
     );
 }

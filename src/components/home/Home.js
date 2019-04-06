@@ -4,7 +4,7 @@ import ReactMap from '../reactMap/ReactMap';
 const Home = () => {
     return(
         <div>
-            <h1>Home Page</h1>
+            <h1>Home/Landing Page</h1>
             <ReactMap />
         </div>
     );
