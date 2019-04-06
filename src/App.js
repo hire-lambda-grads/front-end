@@ -16,23 +16,27 @@ class App extends Component {
 				<header>
 					<div className="nav-bar">
 						<div className="hl-logo">
-							<img src={logo} alt="Logo" />
+							<NavLink exact to="/">
+								<img src={logo} alt="Logo" />
+							</NavLink>
 						</div>
 						<nav>
 							<NavLink exact to="/">
 								Home
 							</NavLink>
-							&nbsp;|&nbsp;
+
 							<NavLink to="/about">About</NavLink>
-							&nbsp;|&nbsp;
+
 							<NavLink to="/dashboard">Dashboard</NavLink>
-							&nbsp;|&nbsp;
+
 							<NavLink to="/login">Login</NavLink>
-							&nbsp;|&nbsp;
+
 							<NavLink to="/signup">Signup</NavLink>
-							&nbsp;|&nbsp;
-							<button onClick={this.logout}>Logout</button>
 						</nav>
+
+						<button className="btn-red" onClick={this.logout}>
+							Logout <i className="fas fa-sign-out-alt" />
+						</button>
 					</div>
 				</header>
 				<main>

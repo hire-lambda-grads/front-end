@@ -1,12 +1,12 @@
 import React from 'react';
 
 const About = () => {
-    return(
-        <div>
-            <h1>Interactive About Us Page Goes Here</h1>
-            <h2>Social Cards for Each Team Member Appear Here</h2>
-        </div>
-    );
-}
+	return (
+		<div>
+			<h1>FOOTER MENU - Interactive About Us Page Goes Here</h1>
+			<h2>Social Cards for Each Team Member Appear Here</h2>
+		</div>
+	);
+};
 
 export default About;

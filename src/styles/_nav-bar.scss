@@ -1,8 +1,32 @@
 .nav-bar {
+    @include box-align(space-around, center);
+    padding: 10px;
+    background-color: $light-color;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+
     .hl-logo {
         width: 100%;
         height: auto;
-        max-width: 200px;
+        max-width: 150px;
+    }
+
+    nav {
+        @include box-align(space-around, center);
+
+        a {
+            text-decoration: none;
+            font-size: 1.4rem;
+            padding: 7px 10px;
+            color: $link-color;
+
+            &.active {
+                border-bottom: 2px solid $lambda-red;
+            }
+
+        }
     }
 
 }

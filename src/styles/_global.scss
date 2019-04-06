@@ -19,3 +19,29 @@ h1 {
     font-weight: $title-weigth;
     /* Sass - Test delete it anytime */
 }
+
+.btn-red {
+    background-color: $lambda-red;
+    font-weight: 700;
+    color: $light-color;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    padding: 14px 22px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $contrast-red;
+
+        .fas {
+            transform: rotate(90deg);
+            -webkit-transition: transform 1s;
+            /* Safari */
+            transition: transform 1s;
+        }
+    }
+}
+
+main {
+    padding-top: 70px;
+}
