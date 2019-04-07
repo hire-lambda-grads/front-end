@@ -2,7 +2,7 @@ import React from 'react';
 
 import Card from './Card';
 
-import jake from '../../assets/movie 1.mp4';
+import jake from '../../assets/movie-1.mp4';
 
 const About = () => {
 	return (

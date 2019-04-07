@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class LoggedInStudentDashboard extends Component {
 	state = {
@@ -26,7 +26,7 @@ class LoggedInStudentDashboard extends Component {
 
 	render() {
 		return (
-			<div className="login-page">
+			<div className="dashboard-page">
 				<div className="banner-login">
 					<h1>Edit Your Profile</h1>
 
@@ -46,7 +46,7 @@ class LoggedInStudentDashboard extends Component {
 					<form onSubmit={this.handleSubmit}>
 						<div>
 							<label htmlFor="about">About Me:</label>
-							<input
+							<textarea
 								name="about"
 								id="about"
 								value={this.state.about}
@@ -106,6 +106,9 @@ class LoggedInStudentDashboard extends Component {
 							</button>
 						</div>
 					</form>
+					<Link to="/profile" className="btn-red">
+						Cancel <i className="fas fa-sign-out-alt" />
+					</Link>
 				</div>
 			</div>
 		);
@@ -125,7 +128,7 @@ class LoggedInStudentDashboard extends Component {
 			.post(endpoint, this.state)
 			.then(res => {
 				console.log('update', res);
-				this.props.history.push('/home');
+				this.props.history.push('/profile');
 			})
 			.catch(error => console.error(error));
 	};
