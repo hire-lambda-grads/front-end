@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 
 class Signup extends React.Component {
 	state = {
-		username: '',
 		password: '',
 		first_name: '',
 		last_name: '',
@@ -33,14 +32,14 @@ class Signup extends React.Component {
 				<div className="form-box">
 					<form onSubmit={this.handleSubmit}>
 						<div>
-							<label htmlFor="username" />
+							<label htmlFor="email" />
 							<input
-								name="username"
-								id="username"
-								value={this.state.username}
+								name="email"
+								id="email"
+								value={this.state.email}
 								onChange={this.handleInputChange}
 								type="text"
-								placeholder="Username"
+								placeholder="Email Address"
 							/>
 						</div>
 						<div>
@@ -77,17 +76,6 @@ class Signup extends React.Component {
 							/>
 						</div>
 						<div>
-							<label htmlFor="email" />
-							<input
-								name="email"
-								id="email"
-								value={this.state.email}
-								onChange={this.handleInputChange}
-								type="text"
-								placeholder="Email Address"
-							/>
-						</div>
-						<div>
 							<button className="btn-red" type="submit">
 								Register <i className="far fa-clipboard" />
 							</button>
@@ -109,13 +97,14 @@ class Signup extends React.Component {
 		event.preventDefault();
 
 		const endpoint = 'https://halg-backend.herokuapp.com/api/auth/register';
+		// const endpoint = 'http://localhost:5000/api/auth/register';
 
 		axios
 			.post(endpoint, this.state)
 			.then(res => {
 				localStorage.setItem('token', res.data.token);
 				console.log('successfully submitted');
-				this.props.history.push('/dashboard');
+				this.props.history.push('/login');
 			})
 			.catch(error => console.error(error));
 	};

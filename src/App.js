@@ -8,6 +8,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
+import LoggedInStudentDashboard from './components/dashboard/LoggedInStudentDashboard';
 
 class App extends Component {
 	render() {
@@ -59,7 +60,7 @@ class App extends Component {
 						path="/dashboard"
 						render={props => {
 							console.log(props);
-							return <Dashboard {...props} />;
+							return this.checkLoggedIn() ? <LoggedInStudentDashboard {...props} /> : <Dashboard {...props} />;
 						}}
 					/>
 					<Route
@@ -79,6 +80,14 @@ class App extends Component {
 				</main>
 			</div>
 		);
+	}
+
+	checkLoggedIn = () => {
+		if (localStorage.getItem('token') === null) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	logout = event => {
