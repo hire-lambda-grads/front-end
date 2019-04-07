@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, withRouter, Link } from 'react-router-dom';
+import { Route, NavLink, withRouter, Link, Switch } from 'react-router-dom';
 import './App.scss';
 import logo from './assets/hire-lambda-logo.svg';
 
@@ -10,6 +10,8 @@ import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 import LoggedInStudentDashboard from './components/dashboard/LoggedInStudentDashboard';
 import Profile from './components/dashboard/Profile';
+import Privacy from './components/static-pages/PrivacyPolicy';
+import Contact from './components/static-pages/Contact';
 
 class App extends Component {
 	render() {
@@ -28,53 +30,57 @@ class App extends Component {
 					</div>
 				</header>
 				<main>
-					<Route
-						exact
-						path="/"
-						render={props => {
-							console.log(props);
-							return <Home {...props} />;
-						}}
-					/>
-					<Route
-						path="/about"
-						render={props => {
-							console.log(props);
-							return <About {...props} />;
-						}}
-					/>
-					<Route
-						path="/dashboard"
-						render={props => {
-							console.log(props);
-							return this.checkLoggedIn() ? (
-								<LoggedInStudentDashboard {...props} />
-							) : (
-								<Dashboard {...props} />
-							);
-						}}
-					/>
-					<Route
-						path="/profile"
-						render={props => {
-							console.log(props);
-							return <Profile {...props} />;
-						}}
-					/>
-					<Route
-						path="/login"
-						render={props => {
-							console.log(props);
-							return <Login {...props} />;
-						}}
-					/>
-					<Route
-						path="/signup"
-						render={props => {
-							console.log(props);
-							return <Signup {...props} />;
-						}}
-					/>
+					<Switch>
+						<Route
+							exact
+							path="/"
+							render={props => {
+								console.log(props);
+								return <Home {...props} />;
+							}}
+						/>
+						<Route
+							path="/about"
+							render={props => {
+								console.log(props);
+								return <About {...props} />;
+							}}
+						/>
+						<Route
+							path="/dashboard"
+							render={props => {
+								console.log(props);
+								return this.checkLoggedIn() ? (
+									<LoggedInStudentDashboard {...props} />
+								) : (
+									<Dashboard {...props} />
+								);
+							}}
+						/>
+						<Route
+							path="/profile"
+							render={props => {
+								console.log(props);
+								return <Profile {...props} />;
+							}}
+						/>
+						<Route
+							path="/login"
+							render={props => {
+								console.log(props);
+								return <Login {...props} />;
+							}}
+						/>
+						<Route
+							path="/signup"
+							render={props => {
+								console.log(props);
+								return <Signup {...props} />;
+							}}
+						/>
+						<Route path="/privacy-policy" component={Privacy} />;
+						<Route path="/contact" component={Contact} />;
+					</Switch>
 				</main>
 				<footer>
 					<nav>
@@ -84,11 +90,8 @@ class App extends Component {
 
 						<NavLink to="/about">About</NavLink>
 
-						<NavLink to="/dashboard">Dashboard</NavLink>
-
-						<NavLink to="/login">Login</NavLink>
-
-						<NavLink to="/signup">Signup</NavLink>
+						<NavLink to="/privacy-policy">Privacy Policy</NavLink>
+						<NavLink to="/contact">Contact Hire Lambda</NavLink>
 					</nav>
 				</footer>
 			</div>
