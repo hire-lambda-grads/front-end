@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import LinkInput from './LinkInput';
 
 class LoggedInStudentDashboard extends Component {
 
@@ -56,50 +57,23 @@ class LoggedInStudentDashboard extends Component {
 								placeholder="About Me"
 							/>
 						</div>
-            <div>
-							<label htmlFor="website">Personal Website (optional):</label>
-							<input
-								name="website"
-								id="website"
-								value={this.state.website}
-								onChange={this.handleInputChange}
-								type="website"
-								placeholder="link to your personal website"
-							/>
-						</div>
-						<div>
-							<label htmlFor="linkedin">LinkedIn:</label>
-							<input
-								name="linkedin"
-								id="linkedin"
-								value={this.state.linkedin}
-								onChange={this.handleInputChange}
-								type="linkedin"
-								placeholder="link to your LinkedIn profile"
-							/>
-						</div>
-            <div>
-							<label htmlFor="github">Github:</label>
-							<input
-								name="github"
-								id="github"
-								value={this.state.github}
-								onChange={this.handleInputChange}
-								type="github"
-								placeholder="link to your GitHub profile"
-							/>
-						</div>
-            <div>
-							<label htmlFor="twitter">Twitter (optional):</label>
-							<input
-								name="twitter"
-								id="twitter"
-								value={this.state.twitter}
-								onChange={this.handleInputChange}
-								type="twitter"
-								placeholder="link to your Twitter profile"
-							/>
-						</div>
+
+            <LinkInput id="website" value={this.state.website}
+              label="Personal Website (optional):" placeholder="link to your personal website"
+              handleInputChange={this.handleInputChange}
+            />
+            <LinkInput id="linkedin" value={this.state.linkedin}
+              label="LinkedIn:" placeholder="link to your LinkedIn profile"
+              handleInputChange={this.handleInputChange}
+            />
+            <LinkInput id="github" value={this.state.github}
+              label="GitHub:" placeholder="link to your GitHub profile"
+              handleInputChange={this.handleInputChange}
+            />
+            <LinkInput id="twitter" value={this.state.twitter}
+              label="Twitter (optional):" placeholder="link to your Twitter profile"
+              handleInputChange={this.handleInputChange}
+            />
 
 						<div>
 							<button className="btn-red" type="submit">
@@ -139,9 +113,7 @@ class LoggedInStudentDashboard extends Component {
     axios.get('https://halg-backend.herokuapp.com/api/students/update')
     // axios.get('http://localhost:5000/api/students/update')
       .then(student => {
-        console.log('this is the student we get back when fetching', student);
         this.setState({ ...student.data });
-        console.log('this should be the new state', this.state);
       })
       .catch(err => {
         console.log(err);
