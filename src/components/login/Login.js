@@ -57,7 +57,7 @@ class Login extends React.Component {
 							</button>
 						</div>
 						<div className="signup-btn">
-							<Link to="/singup" className="btn-blue">
+							<Link to="/signup" className="btn-blue">
 								Sign Up <i className="fas fa-user-plus" />
 							</Link>
 						</div>
