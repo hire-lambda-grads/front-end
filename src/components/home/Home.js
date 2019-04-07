@@ -6,7 +6,6 @@ import Whiteboard from '../../assets/Whiteboard.mp4';
 const Home = () => {
     return(
         <div>
-            <h1>Home/Landing Page</h1>
             <video className="bg-video" autoPlay loop muted>
                 <source src={Travaho} type='video/mp4' />
             </video>
