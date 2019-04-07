@@ -74,7 +74,7 @@ class LoggedInStudentDashboard extends Component {
               label="Twitter (optional):" placeholder="link to your Twitter profile"
               handleInputChange={this.handleInputChange}
             />
-
+            
 						<div>
 							<button className="btn-red" type="submit">
 								Update Profile <i className="fas fa-sign-in-alt" />
