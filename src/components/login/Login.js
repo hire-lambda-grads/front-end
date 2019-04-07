@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class Login extends React.Component {
 	state = {
@@ -56,6 +56,11 @@ class Login extends React.Component {
 								Login <i className="fas fa-sign-in-alt" />
 							</button>
 						</div>
+						<div className="signup-btn">
+							<Link to="/singup" className="btn-blue">
+								Sign Up <i className="fas fa-user-plus" />
+							</Link>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -79,7 +84,7 @@ class Login extends React.Component {
 			.then(res => {
 				localStorage.setItem('token', res.data.token);
 
-				this.props.history.push('/dashboard');
+				this.props.history.push('/profile');
 			})
 			.catch(error => console.error(error));
 	};

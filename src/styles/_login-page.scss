@@ -30,6 +30,7 @@
     .form-box {
         @include box-align();
         margin-top: 100px;
+        margin-bottom: 50px;
 
         form {
             @include box-align();
@@ -45,9 +46,17 @@
 
             .btn-red {
                 margin-top: 20px;
+                margin-bottom: 20px;
                 width: 200px;
+                display: block;
+            }
+
+            .signup-btn {
+                text-align: center;
+                display: block;
             }
 
         }
+
     }
 }

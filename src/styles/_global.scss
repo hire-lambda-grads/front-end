@@ -4,6 +4,12 @@
 $primary-color: #333;
 */
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -39,6 +45,21 @@ h1 {
             /* Safari */
             transition: transform 1s;
         }
+    }
+}
+
+.btn-blue {
+    background-color: $lambda-blue;
+    font-weight: 700;
+    color: $light-color;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    padding: 14px 22px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $contrast-blue;
     }
 }
 

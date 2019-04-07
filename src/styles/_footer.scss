@@ -1,0 +1,33 @@
+footer {
+    background-color: $lambda-blue;
+    color: $light-color;
+    @include box-align(space-around, center);
+    min-height: 200px;
+
+    nav {
+        @include box-align(space-around, center);
+
+        a {
+            text-decoration: none;
+            font-size: 1.4rem;
+            padding: 7px 10px;
+            color: $light-color;
+
+            &.active {
+                border-bottom: 2px solid $lambda-red;
+            }
+
+            &:hover {
+                color: $lambda-red;
+            }
+
+        }
+    }
+
+    .hl-logo {
+        width: 100%;
+        height: auto;
+        max-width: 150px;
+    }
+
+}
