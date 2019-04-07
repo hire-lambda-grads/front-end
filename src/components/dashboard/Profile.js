@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter, Link } from 'react-router-dom';
+import photo from '../../assets/128.jpg';
 
 class Profile extends Component {
 	state = {
@@ -26,8 +27,8 @@ class Profile extends Component {
 
 	render() {
 		return (
-			<div className="login-page">
-				<div className="banner-login">
+			<div className="profile-page">
+				<div className="banner-profile">
 					<h1>Profile</h1>
 
 					<div className="code-logos">
@@ -42,27 +43,44 @@ class Profile extends Component {
 						<i className="fab fa-android" />
 					</div>
 				</div>
-				<div className="form-box">
-					<button className="btn-red" onClick={this.logout}>
-						Logout <i className="fas fa-sign-out-alt" />
-					</button>
-					<Link to="/dashboard" className="btn-red">
-						Edit Profile <i className="fas fa-sign-out-alt" />
+				<div className="options-bar">
+					<Link to="/dashboard" className="btn-options">
+						Edit Profile <i className="fas fa-edit" />
 					</Link>
-					<h2>About Me:</h2>
-					<p>{this.state.about}</p>
+					<Link className="btn-options" onClick={this.logout}>
+						Logout <i className="fas fa-sign-out-alt" />
+					</Link>
+				</div>
+				<div className="wrap-card">
+					<div className="content-card">
+						<div className="card">
+							<div className="firstinfo">
+								<img src={photo} alt="test" />
+								<div className="profileinfo">
+									<h1>Name Last Name</h1>
+									<h3>Eamil@mail.com</h3>
 
-					<h2>Personal Website</h2>
-					<p>{this.state.website}</p>
-
-					<h2>LinkedIn:</h2>
-					<p>{this.state.linkedin}</p>
-
-					<h2>Github:</h2>
-					<p>{this.state.github}</p>
-
-					<h2>Twitter</h2>
-					<p>{this.state.twitter}</p>
+									<h2>About Me:</h2>
+									<p className="bio">{this.state.about}</p>
+								</div>
+							</div>
+						</div>
+						<div className="badgescard">
+							<h3>Contact Me </h3>
+							<a href={`${this.state.github}`} target="_blank">
+								<i className="fab fa-github" />
+							</a>
+							<a href={`${this.state.linkedin}`} target="_blank">
+								<i className="fab fa-linkedin-in" />
+							</a>
+							<a href={`${this.state.twitter}`} target="_blank">
+								<i className="fab fa-twitter" />
+							</a>
+							<a href={`${this.state.website}`} target="_blank">
+								<i className="fas fa-globe-americas" />
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		);

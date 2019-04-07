@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class Login extends React.Component {
 	state = {
@@ -55,6 +55,11 @@ class Login extends React.Component {
 							<button className="btn-red" type="submit">
 								Login <i className="fas fa-sign-in-alt" />
 							</button>
+						</div>
+						<div className="signup-btn">
+							<Link to="/singup" className="btn-blue">
+								Sign Up <i className="fas fa-user-plus" />
+							</Link>
 						</div>
 					</form>
 				</div>

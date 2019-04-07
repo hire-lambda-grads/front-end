@@ -43,20 +43,13 @@ class LoggedInStudentDashboard extends Component {
 						<i className="fab fa-android" />
 					</div>
 				</div>
+				<div className="options-bar">
+					<Link to="/profile" className="btn-options">
+						Cancel <i className="fas fa-ban" />
+					</Link>
+				</div>
 				<div className="form-box">
 					<form onSubmit={this.handleSubmit}>
-						<div>
-							<label htmlFor="about">About Me:</label>
-							<textarea
-								name="about"
-								id="about"
-								value={this.state.about}
-								onChange={this.handleInputChange}
-								type="text"
-								placeholder="About Me"
-							/>
-						</div>
-
 						<LinkInput
 							id="website"
 							value={this.state.website}
@@ -85,16 +78,23 @@ class LoggedInStudentDashboard extends Component {
 							placeholder="link to your Twitter profile"
 							handleInputChange={this.handleInputChange}
 						/>
-
+						<div>
+							<label htmlFor="about">About Me:</label>
+							<textarea
+								name="about"
+								id="about"
+								value={this.state.about}
+								onChange={this.handleInputChange}
+								type="text"
+								placeholder="About Me"
+							/>
+						</div>
 						<div>
 							<button className="btn-red" type="submit">
 								Update Profile <i className="fas fa-sign-in-alt" />
 							</button>
 						</div>
 					</form>
-					<Link to="/profile" className="btn-red">
-						Cancel <i className="fas fa-sign-out-alt" />
-					</Link>
 				</div>
 			</div>
 		);

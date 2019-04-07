@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, NavLink, withRouter, Link, Switch } from 'react-router-dom';
 import './App.scss';
 import logo from './assets/hire-lambda-logo.svg';
+import logoWhite from './assets/hire-lambda-logo-white.svg';
 
 import About from './components/about/About';
 import Dashboard from './components/dashboard/Dashboard';
@@ -93,6 +94,11 @@ class App extends Component {
 						<NavLink to="/privacy-policy">Privacy Policy</NavLink>
 						<NavLink to="/contact">Contact Hire Lambda</NavLink>
 					</nav>
+					<div className="hl-logo">
+						<NavLink exact to="/">
+							<img src={logoWhite} alt="Logo" />
+						</NavLink>
+					</div>
 				</footer>
 			</div>
 		);

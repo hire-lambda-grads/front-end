@@ -27,20 +27,61 @@
         }
     }
 
+    .options-bar {
+        @include box-align();
+        padding: 15px;
+
+        .btn-options {
+            margin: 15px;
+            background-color: $lambda-blue;
+            font-weight: 700;
+            color: $light-color;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+    }
+
     .form-box {
         @include box-align();
-        margin-top: 100px;
+        margin-top: 50px;
+
 
         form {
             @include box-align();
             flex-direction: column;
+            margin-bottom: 50px;
 
-            input,
-            textarea {
-                margin: 5px;
+            input {
+                margin: 5px 5px 25px 5px;
                 border: none;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 padding: 5px 10px;
+
+            }
+
+            textarea {
+                margin: 5px 5px 20px 5px;
+                border: none;
+                font-size: 1.6rem;
+                padding: 5px 10px;
+                min-height: 150px;
+                min-width: 240px;
+                font-family: 'Roboto Condensed', sans-serif;
+                font-weight: 400;
+            }
+
+            label {
+                display: block;
+                font-size: 1.8rem;
+                font-weight: $title-weigth;
 
             }
 
