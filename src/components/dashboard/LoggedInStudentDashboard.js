@@ -3,27 +3,26 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
 class LoggedInStudentDashboard extends Component {
+	state = {
+		about: '',
+		account_id: null,
+		careers_approved: false,
+		cohort_id: null,
+		did_pm: false,
+		github: '',
+		id: null,
+		job_searching: false,
+		linkedin: '',
+		location: '',
+		profile_pic: '',
+		relocatable: false,
+		twitter: '',
+		website: ''
+	};
 
-  state = {
-    about: '',
-    account_id: null,
-    careers_approved: false,
-    cohort_id: null,
-    did_pm: false,
-    github: '',
-    id: null,
-    job_searching: false,
-    linkedin: '',
-    location: '',
-    profile_pic: '',
-    relocatable: false,
-    twitter: '',
-    website: ''
-  }
-
-  componentDidMount() {
-    this.fetchStudentInfo();
-  }
+	componentDidMount() {
+		this.fetchStudentInfo();
+	}
 
 	render() {
 		return (
@@ -56,7 +55,7 @@ class LoggedInStudentDashboard extends Component {
 								placeholder="About Me"
 							/>
 						</div>
-            <div>
+						<div>
 							<label htmlFor="website">Personal Website (optional):</label>
 							<input
 								name="website"
@@ -78,7 +77,7 @@ class LoggedInStudentDashboard extends Component {
 								placeholder="link to your LinkedIn profile"
 							/>
 						</div>
-            <div>
+						<div>
 							<label htmlFor="github">Github:</label>
 							<input
 								name="github"
@@ -89,7 +88,7 @@ class LoggedInStudentDashboard extends Component {
 								placeholder="link to your GitHub profile"
 							/>
 						</div>
-            <div>
+						<div>
 							<label htmlFor="twitter">Twitter (optional):</label>
 							<input
 								name="twitter"
@@ -116,37 +115,39 @@ class LoggedInStudentDashboard extends Component {
 		const { name, value } = event.target;
 
 		this.setState({ [name]: value });
-  };
-  
-  handleSubmit = event => {
+	};
+
+	handleSubmit = event => {
 		event.preventDefault();
-    const endpoint = 'https://halg-backend.herokuapp.com/api/students/update';
-    // const endpoint = 'http://localhost:5000/api/students/update';
+		const endpoint = 'https://halg-backend.herokuapp.com/api/students/update';
+		// const endpoint = 'http://localhost:5000/api/students/update';
 		axios
 			.post(endpoint, this.state)
 			.then(res => {
-				this.props.history.push('/dashboard');
+				console.log('update', res);
+				this.props.history.push('/home');
 			})
 			.catch(error => console.error(error));
 	};
 
-  fetchStudentInfo = () => {
-    axios.interceptors.request.use(function(requestConfig) {
-      const token = localStorage.getItem('token');
-      requestConfig.headers.authorization = token;
-      return requestConfig;
-    });
-    axios.get('https://halg-backend.herokuapp.com/api/students/update')
-    // axios.get('http://localhost:5000/api/students/update')
-      .then(student => {
-        console.log('this is the student we get back when fetching', student);
-        this.setState({ ...student.data });
-        console.log('this should be the new state', this.state);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+	fetchStudentInfo = () => {
+		axios.interceptors.request.use(function(requestConfig) {
+			const token = localStorage.getItem('token');
+			requestConfig.headers.authorization = token;
+			return requestConfig;
+		});
+		axios
+			.get('https://halg-backend.herokuapp.com/api/students/update')
+			// axios.get('http://localhost:5000/api/students/update')
+			.then(student => {
+				console.log('this is the student we get back when fetching', student);
+				this.setState({ ...student.data });
+				console.log('this should be the new state', this.state);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
 }
 
 export default withRouter(LoggedInStudentDashboard);
