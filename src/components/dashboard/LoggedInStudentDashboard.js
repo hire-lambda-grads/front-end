@@ -56,7 +56,29 @@ class LoggedInStudentDashboard extends Component {
 								placeholder="About Me"
 							/>
 						</div>
+            <div>
+							<label htmlFor="website">Personal Website (optional):</label>
+							<input
+								name="website"
+								id="website"
+								value={this.state.website}
+								onChange={this.handleInputChange}
+								type="website"
+								placeholder="link to your personal website"
+							/>
+						</div>
 						<div>
+							<label htmlFor="linkedin">LinkedIn:</label>
+							<input
+								name="linkedin"
+								id="linkedin"
+								value={this.state.linkedin}
+								onChange={this.handleInputChange}
+								type="linkedin"
+								placeholder="link to your LinkedIn profile"
+							/>
+						</div>
+            <div>
 							<label htmlFor="github">Github:</label>
 							<input
 								name="github"
@@ -64,7 +86,18 @@ class LoggedInStudentDashboard extends Component {
 								value={this.state.github}
 								onChange={this.handleInputChange}
 								type="github"
-								placeholder="Github Profile"
+								placeholder="link to your GitHub profile"
+							/>
+						</div>
+            <div>
+							<label htmlFor="twitter">Twitter (optional):</label>
+							<input
+								name="twitter"
+								id="twitter"
+								value={this.state.twitter}
+								onChange={this.handleInputChange}
+								type="twitter"
+								placeholder="link to your Twitter profile"
 							/>
 						</div>
 
