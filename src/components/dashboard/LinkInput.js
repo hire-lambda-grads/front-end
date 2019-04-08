@@ -7,9 +7,9 @@ const LinkInput = props => {
       <input
         name={props.id}
         id={props.id}
-        value={props.value}
+        value={props.value || ''}
         onChange={props.handleInputChange}
-        type={props.id}
+        type="text"
         placeholder={props.placeholder}
       />
     </div>

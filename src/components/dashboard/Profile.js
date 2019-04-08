@@ -7,9 +7,7 @@ class Profile extends Component {
 	state = {
 		about: '',
 		account_id: null,
-		careers_approved: false,
 		cohort_id: null,
-		did_pm: false,
 		github: '',
 		id: null,
 		job_searching: false,
@@ -47,9 +45,9 @@ class Profile extends Component {
 					<Link to="/dashboard" className="btn-options">
 						Edit Profile <i className="fas fa-edit" />
 					</Link>
-					<Link className="btn-options" onClick={this.logout}>
+					<button className="btn-options" onClick={this.logout}>
 						Logout <i className="fas fa-sign-out-alt" />
-					</Link>
+					</button>
 				</div>
 				<div className="wrap-card">
 					<div className="content-card">
@@ -67,16 +65,16 @@ class Profile extends Component {
 						</div>
 						<div className="badgescard">
 							<h3>Contact Me </h3>
-							<a href={`${this.state.github}`} target="_blank">
+							<a href={`${this.state.github}`} target="_blank" rel="noopener noreferrer">
 								<i className="fab fa-github" />
 							</a>
-							<a href={`${this.state.linkedin}`} target="_blank">
+							<a href={`${this.state.linkedin}`} target="_blank" rel="noopener noreferrer">
 								<i className="fab fa-linkedin-in" />
 							</a>
-							<a href={`${this.state.twitter}`} target="_blank">
+							<a href={`${this.state.twitter}`} target="_blank" rel="noopener noreferrer">
 								<i className="fab fa-twitter" />
 							</a>
-							<a href={`${this.state.website}`} target="_blank">
+							<a href={`${this.state.website}`} target="_blank" rel="noopener noreferrer">
 								<i className="fas fa-globe-americas" />
 							</a>
 						</div>
@@ -96,12 +94,12 @@ class Profile extends Component {
 			.get('https://halg-backend.herokuapp.com/api/students/update')
 			// axios.get('http://localhost:5000/api/students/update')
 			.then(student => {
-				console.log('this is the student we get back when fetching', student);
+				// console.log('this is the student we get back when fetching', student);
 				this.setState({ ...student.data });
-				console.log('this should be the new state', this.state);
+				// console.log('this should be the new state', this.state);
 			})
 			.catch(err => {
-				console.log(err);
+				console.log('the get students thingy failed', err);
 			});
 	};
 

@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import LinkInput from './LinkInput';
+// import FileInput from './FileInput';
 import { withRouter, Link } from 'react-router-dom';
 
 class LoggedInStudentDashboard extends Component {
 	state = {
 		about: '',
-		account_id: null,
-		careers_approved: false,
 		cohort_id: null,
-		did_pm: false,
 		github: '',
-		id: null,
 		job_searching: false,
 		linkedin: '',
 		location: '',
 		profile_pic: '',
 		relocatable: false,
 		twitter: '',
-		website: ''
+		website: '',
+		image: null
 	};
+
+	fileInput = React.createRef();
 
 	componentDidMount() {
 		this.fetchStudentInfo();
@@ -50,6 +50,13 @@ class LoggedInStudentDashboard extends Component {
 				</div>
 				<div className="form-box">
 					<form onSubmit={this.handleSubmit}>
+						{/* <FileInput /> */}
+						<div>
+							<label>
+								Upload Profile Picture:
+								<input type='file' name='image' onChange={this.handleFileChange} />
+							</label>
+						</div>
 						<LinkInput
 							id="website"
 							value={this.state.website}
@@ -100,6 +107,9 @@ class LoggedInStudentDashboard extends Component {
 		);
 	}
 
+	handleFileChange = event => {
+		this.setState({ image: event.target.files[0] });
+	}
 	handleInputChange = event => {
 		const { name, value } = event.target;
 
@@ -108,15 +118,28 @@ class LoggedInStudentDashboard extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
+
+		let payload = this.state;
+		delete payload.cohort_options;
+		delete payload.profile_pic;
+		delete payload.id;
+		payload.cohort_id = 1;
+		let formData = new FormData();
+		formData.append("image", payload.image);
+		delete payload.image;
+		formData.append("studentInfo", JSON.stringify(payload));
+
 		const endpoint = 'https://halg-backend.herokuapp.com/api/students/update';
 		// const endpoint = 'http://localhost:5000/api/students/update';
+
 		axios
-			.post(endpoint, this.state)
+			.put(endpoint, formData)
 			.then(res => {
-				console.log('update', res);
 				this.props.history.push('/profile');
 			})
-			.catch(error => console.error(error));
+			.catch(error => {
+				console.log('hellooo', error);
+			});
 	};
 
 	fetchStudentInfo = () => {
@@ -129,7 +152,10 @@ class LoggedInStudentDashboard extends Component {
 			.get('https://halg-backend.herokuapp.com/api/students/update')
 			// axios.get('http://localhost:5000/api/students/update')
 			.then(student => {
-				this.setState({ ...student.data });
+				console.log('student data recieved from get /api/students/update', student.data);
+				this.setState({ ...student.data }, function() {
+					console.log(this.state);
+				});
 			})
 			.catch(err => {
 				console.log(err);
