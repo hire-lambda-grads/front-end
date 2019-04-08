@@ -2,46 +2,43 @@ import React from 'react';
 
 import Card from './Card';
 
-import jake from '../../assets/movie-1.mp4';
+//Videos for each person
+import jake from '../../assets/about-videos/Jake.mp4';
+import tico from '../../assets/about-videos/Tico.mp4';
 
-const About = () => {
+const About = props => {
 	return (
-		<div>
-			<h1>FOOTER MENU - Interactive About Us Page Goes Here</h1>
-			<h2>Social Cards for Each Team Member Appear Here</h2>
+		<div className="about-cards">
+			{/* <h1>FOOTER MENU - Interactive About Us Page Goes Here</h1> */}
+
 			<Card
 				name="Brandon Gardner"
-				//video= {}
+				video={jake}
 				about="I am basically a walking computer! Calculating....."
 			/>
 			<Card
 				name="Tico Thepsourinthone"
-				//video= {}
+				video={tico}
 				about="I am basically a walking computer! Calculating....."
 			/>
 			<Card
 				name="A. Lowell Richardson"
-				//video= {}
+				video={jake}
 				about="I am basically a walking computer! Calculating....."
 			/>
 			<Card
 				name="Julian Moreno"
-				//video= {}
+				video={jake}
 				about="I am basically a walking computer! Calculating....."
 			/>
 			<Card
 				name="Ryan Clark"
-				//video= {}
+				video={jake}
 				about="I am basically a walking computer! Calculating....."
 			/>
 			<Card
 				name="Jake Thomas"
 				video={jake}
-				about="I am basically a walking computer! Calculating....."
-			/>
-			<Card
-				name="Jamie Goodnight"
-				//video= {}
 				about="I am basically a walking computer! Calculating....."
 			/>
 		</div>

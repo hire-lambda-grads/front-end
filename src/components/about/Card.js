@@ -1,23 +1,35 @@
 import React from 'react';
 
-const Card = props => {
-	return (
-		<div>
-			<h2>{props.name}</h2>
-			<video
-				preload
-				muted
-				width="200"
-				height="200"
-				onMouseOver="play()"
-				onMouseOut="pause()"
-			>
-				<source src={props.video} type="video/mp4" />
-			</video>
+class Card extends React.Component {
+	playVideo() {
+		this.refs.vidRef.play();
+	}
 
-			<p>{props.about}</p>
-		</div>
-	);
-};
+	pauseVideo() {
+		this.refs.vidRef.pause();
+	}
+
+	render(props) {
+		return (
+			<div className="about-card">
+				<h2>{this.props.name}</h2>
+				<video
+					muted
+					loop
+					ref="vidRef"
+					src={this.props.video}
+					type="video/mp4"
+					onMouseOver={this.playVideo.bind(this)}
+					onMouseOut={this.pauseVideo.bind(this)}
+				/>
+				<div className="circle" />
+
+				<p>{this.props.about}</p>
+
+				<br />
+			</div>
+		);
+	}
+}
 
 export default Card;
