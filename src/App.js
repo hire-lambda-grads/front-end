@@ -13,6 +13,7 @@ import LoggedInStudentDashboard from './components/dashboard/LoggedInStudentDash
 import Profile from './components/dashboard/Profile';
 import Privacy from './components/static-pages/PrivacyPolicy';
 import Contact from './components/static-pages/Contact';
+import Account from './components/dashboard/AccountStudent';
 
 class App extends Component {
 	render() {
@@ -63,6 +64,13 @@ class App extends Component {
 							render={props => {
 								console.log(props);
 								return <Profile {...props} />;
+							}}
+						/>
+						<Route
+							path="/account"
+							render={props => {
+								console.log(props);
+								return <Account {...props} />;
 							}}
 						/>
 						<Route
