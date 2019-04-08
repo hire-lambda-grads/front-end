@@ -5,14 +5,14 @@ import Card from './Card';
 
 
 //Videos for each person
-import jake from '../../assets/Jake.mp4'
-
+import jake from '../../assets/about-videos/Jake.mp4';
+import tico from '../../assets/about-videos/Tico.mp4';
 
 const About = (props) => {
 	return (
 		<div className = 'about-cards'>
-			<h1>FOOTER MENU - Interactive About Us Page Goes Here</h1>
-			<h2>Social Cards for Each Team Member Appear Here</h2>
+			{/* <h1>FOOTER MENU - Interactive About Us Page Goes Here</h1> */}
+			
 			<Card 
 			name= 'Brandon Gardner'
 			video= {jake}
@@ -20,7 +20,7 @@ const About = (props) => {
 			/>
 			<Card 
 			name= 'Tico Thepsourinthone'
-			video= {jake}
+			video= {tico}
 			about= 'I am basically a walking computer! Calculating.....'
 			/>
 			<Card 
