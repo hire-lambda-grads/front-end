@@ -28,6 +28,9 @@ class Profile extends Component {
 					</div>
 				</div>
 				<div className="options-bar">
+					<Link to="/account" className="btn-options">
+						Edit Account <i className="fas fa-edit" />
+					</Link>
 					<Link to="/dashboard" className="btn-options">
 						Edit Profile <i className="fas fa-edit" />
 					</Link>
@@ -43,12 +46,12 @@ class Profile extends Component {
 									<img src={this.state.profile_pic} alt="Profile Pictuare" />
 								</div>
 								<h1>
-									Full Name
 									{this.state.first_name} {this.state.last_name}
 								</h1>
 								<div className="profileinfo">
 									<div className="bio">
-										<h2>About Me:</h2>
+										<h2>{this.state.track}</h2>
+										<h3>About Me:</h3>
 										<p>{this.state.about}</p>
 									</div>
 								</div>
@@ -98,8 +101,7 @@ class Profile extends Component {
 			return requestConfig;
 		});
 		axios
-			// .get(`https://halg-backend.herokuapp.com/api/students/profile/2`)
-			.get(`https://halg-backend.herokuapp.com/api/students/update`)
+			.get(`https://halg-backend.herokuapp.com/api/students/profile`)
 			.then(student => {
 				console.log(
 					'this is the student we get back when fetching',

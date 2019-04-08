@@ -45,8 +45,9 @@
             border: none;
             cursor: pointer;
 
-            a {
-                text-decoration: none;
+            &:hover {
+                background-color: lighten($contrast-blue, 10%);
+                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
             }
         }
 
@@ -138,12 +139,21 @@
 
             }
 
+
             .profileinfo {
                 padding: 0px 20px;
 
                 h1 {
                     font-size: 2rem;
                     margin-bottom: 10px;
+                }
+
+                h2 {
+                    color: $lambda-red;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                    text-align: center;
                 }
 
                 h3 {
@@ -153,12 +163,6 @@
                     margin-bottom: 10px;
                 }
 
-                h2 {
-                    margin-top: 10px;
-                    font-size: 1.4rem;
-                    color: $dark-color;
-                    font-weight: 700;
-                }
 
                 .bio {
                     background-color: $light-color;
@@ -167,13 +171,6 @@
                     border-radius: 3px;
                     margin: 20px 0;
                     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-
-                    h2 {
-                        color: $lambda-red;
-                        font-size: 1.8rem;
-                        font-weight: 700;
-                        margin-bottom: 10px;
-                    }
 
                     p {
                         color: $dark-color;

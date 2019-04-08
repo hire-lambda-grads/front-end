@@ -5,6 +5,7 @@ footer {
     min-height: 200px;
 
     nav {
+        width: 30%;
         @include box-align(space-around, center);
 
         a {
@@ -25,9 +26,29 @@ footer {
     }
 
     .hl-logo {
-        width: 100%;
+        width: 30%;
         height: auto;
         max-width: 150px;
     }
 
+    .footer-icons {
+
+        @include box-align(space-around, center);
+        width: 30%;
+
+        .icons-container {
+            a {
+                color: $light-color;
+                font-size: 20px;
+                cursor: pointer;
+                margin: 5px 10px;
+
+                &:hover {
+                    color: $contrast-blue;
+                }
+            }
+
+        }
+
+    }
 }

@@ -13,6 +13,7 @@ import LoggedInStudentDashboard from './components/dashboard/LoggedInStudentDash
 import Profile from './components/dashboard/Profile';
 import Privacy from './components/static-pages/PrivacyPolicy';
 import Contact from './components/static-pages/Contact';
+import Account from './components/dashboard/AccountStudent';
 
 class App extends Component {
 	render() {
@@ -66,6 +67,13 @@ class App extends Component {
 							}}
 						/>
 						<Route
+							path="/account"
+							render={props => {
+								console.log(props);
+								return <Account {...props} />;
+							}}
+						/>
+						<Route
 							path="/login"
 							render={props => {
 								console.log(props);
@@ -98,6 +106,31 @@ class App extends Component {
 						<NavLink exact to="/">
 							<img src={logoWhite} alt="Logo" />
 						</NavLink>
+					</div>
+					<div className="footer-icons">
+						<div className="icons-container">
+							<a
+								href="https://twitter.com/lambdaschool"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<i className="fab fa-twitter" />
+							</a>
+							<a
+								href="https://www.facebook.com/LambdaSchoolOnline/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<i className="fab fa-facebook-square" />
+							</a>
+							<a
+								href="https://github.com/LambdaSchool"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<i className="fab fa-github" />
+							</a>
+						</div>
 					</div>
 				</footer>
 			</div>
