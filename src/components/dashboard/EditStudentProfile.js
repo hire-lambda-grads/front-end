@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import LinkInput from './LinkInput';
+import TextInput from './TextInput';
 // import FileInput from './FileInput';
 import { withRouter, Link } from 'react-router-dom';
 
-class LoggedInStudentDashboard extends Component {
+class EditStudentProfile extends Component {
 	state = {
 		about: '',
 		cohort_id: null,
@@ -67,28 +67,28 @@ class LoggedInStudentDashboard extends Component {
 											onChange={this.handleFileChange}
 										/>
 									</div>
-									<LinkInput
+									<TextInput
 										id="website"
 										value={this.state.website}
 										label="Personal Website (optional):"
 										placeholder="link to your personal website"
 										handleInputChange={this.handleInputChange}
 									/>
-									<LinkInput
+									<TextInput
 										id="linkedin"
 										value={this.state.linkedin}
 										label="LinkedIn:"
 										placeholder="link to your LinkedIn profile"
 										handleInputChange={this.handleInputChange}
 									/>
-									<LinkInput
+									<TextInput
 										id="github"
 										value={this.state.github}
 										label="GitHub:"
 										placeholder="link to your GitHub profile"
 										handleInputChange={this.handleInputChange}
 									/>
-									<LinkInput
+									<TextInput
 										id="twitter"
 										value={this.state.twitter}
 										label="Twitter (optional):"
@@ -180,4 +180,4 @@ class LoggedInStudentDashboard extends Component {
 	};
 }
 
-export default withRouter(LoggedInStudentDashboard);
+export default withRouter(EditStudentProfile);
