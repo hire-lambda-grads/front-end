@@ -3,17 +3,7 @@
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("./assets/login-image.jpg");
         background-image: -webkit-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("./assets/login-image.jpg");
         background-image: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("./assets/login-image.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-
-        @include box-align();
-        flex-direction: column;
-        min-height: 300px;
-        color: $light-color;
-        text-transform: uppercase;
-
+        @extend %general-headers;
 
         .code-logos {
             @include box-align();
@@ -27,31 +17,7 @@
         }
     }
 
-
-    .options-bar {
-        @include box-align();
-        padding: 5px;
-        background-color: $lambda-blue;
-        margin-bottom: 50px;
-
-        .btn-options {
-            margin: 15px;
-            background-color: $contrast-blue;
-            font-weight: 400;
-            color: $light-color;
-            border-radius: 4px;
-            font-size: 1.4rem;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-
-            &:hover {
-                background-color: lighten($contrast-blue, 10%);
-                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-            }
-        }
-
-    }
+    @extend %header-bar;
 
     .wrap-card {
         @include box-align();
@@ -64,7 +30,7 @@
         }
 
         .card {
-            @include dimensions(500px, 100px);
+            @include dimensions(100%, 100px);
             padding: 20px;
             border-radius: 3px;
             background-color: $light-color;
@@ -87,39 +53,6 @@
 
         }
 
-        .badgescard {
-            padding: 10px 20px;
-            border-radius: 3px;
-            background-color: $light-color;
-            width: 480px;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            z-index: -1;
-            left: 10px;
-            bottom: 10px;
-            @include box-align();
-            animation: animainfos 0.5s cubic-bezier(0.425, 1.040, 0.470, 1.105) 0.75s forwards;
-
-            h3 {
-                font-size: 1.6rem;
-                color: $lambda-blue;
-                font-weight: 700;
-            }
-
-            a {
-                color: $dark-color;
-
-                &:hover {
-                    color: $lambda-red;
-                }
-            }
-
-            i {
-                font-size: 2.5rem;
-                margin: 0px 10px;
-            }
-        }
-
 
         .firstinfo {
             @include box-align(space-around, center);
@@ -133,16 +66,52 @@
                 font-weight: 700;
             }
 
-            .img-wrap {
-                border-radius: 50%;
-                overflow: hidden;
-                width: 200px;
-                height: 200px;
-                margin-bottom: 50px;
+            .picture-box {
+                text-align: center;
 
-                img {
+                input {
+                    width: 80%;
+                    margin: 10px auto;
+                }
+
+                input[type="file"] {
                     width: 100%;
-                    height: auto;
+                    border: none;
+                }
+
+                .img-wrap {
+                    border-radius: 50%;
+                    overflow: hidden;
+                    width: 150px;
+                    height: 150px;
+                    margin-bottom: 20px;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                }
+
+                .btn-upload {
+                    width: 80px;
+                    background-color: $lambda-red;
+                    font-weight: 700;
+                    color: $light-color;
+                    border-radius: 4px;
+                    font-size: 1.2rem;
+
+                    text-align: center;
+                    padding: 10px 0;
+                    border: none;
+                    cursor: pointer;
+                    text-decoration: none;
+
+                    &:hover {
+                        background-color: $contrast-red;
+                        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+                    }
+
                 }
 
             }
@@ -150,16 +119,15 @@
             form {
                 @include box-align();
                 flex-direction: column;
-                margin-bottom: 50px;
 
                 div {
                     width: 100%;
 
                     input {
                         width: 100%;
-                        margin: 5px 5px 25px 5px;
+                        margin: 5px 5px 10px 5px;
                         border: none;
-                        font-size: 1.6rem;
+                        font-size: 1.4rem;
                         padding: 5px 10px;
                         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
                     }
@@ -167,26 +135,53 @@
                     textarea {
                         margin: 5px 5px 20px 5px;
                         border: none;
-                        font-size: 1.6rem;
+                        font-size: 1.4rem;
                         padding: 5px 10px;
-                        min-height: 300px;
+                        min-height: 200px;
                         min-width: 350px;
+                        width: 100%;
                         font-family: 'Roboto Condensed', sans-serif;
                         font-weight: 400;
                         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+
                     }
 
                     label {
-                        display: block;
-                        font-size: 1.8rem;
+                        font-size: 1.4rem;
                         font-weight: $title-weigth;
-                        margin: 10px 0
+                        margin: 0;
                     }
 
-                    .btn-red {
-                        margin-top: 20px;
-                        width: 200px;
+                }
+
+                .btn-red {
+                    margin: 0 auto;
+                    width: 200px;
+                    background-color: $lambda-red;
+                    font-weight: 700;
+                    color: $light-color;
+                    border-radius: 4px;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    padding: 10px 0;
+                    border: none;
+                    cursor: pointer;
+                    text-decoration: none;
+
+                    &:hover {
+                        background-color: $contrast-red;
+                        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+
+                        // .fas {
+ //     float: right;
+ //     position: relative;
+ //     right: 25%;
+ //     -webkit-transition: float s;
+ //     /* Safari */
+ //     transition: transform 1s;
+ // }
                     }
+
                 }
 
             }

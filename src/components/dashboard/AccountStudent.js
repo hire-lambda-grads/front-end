@@ -12,7 +12,8 @@ class AccountStudent extends Component {
 		first_name: '',
 		last_name: '',
 		verified_student: false,
-		role: ''
+		role: '',
+		password: ''
 	};
 
 	fileInput = React.createRef();
@@ -70,12 +71,17 @@ class AccountStudent extends Component {
 										placeholder="email"
 										handleInputChange={this.handleInputChange}
 									/>
+									{/* <TextInput
+										id="password"
+										value={this.state.password}
+										label="Password:"
+										placeholder="password"
+										handleInputChange={this.handleInputChange}
+									/> */}
 
-									<div>
-										<button className="btn-red" type="submit">
-											Update Account Info <i className="fas fa-sign-in-alt" />
-										</button>
-									</div>
+									<button className="btn-red" type="submit">
+										Update Account <i className="fas fa-sign-in-alt" />
+									</button>
 								</form>
 							</div>
 						</div>
@@ -98,6 +104,7 @@ class AccountStudent extends Component {
 			email: this.state.email,
 			first_name: this.state.first_name,
 			last_name: this.state.last_name
+			// password: this.state.password
 		};
 
 		const endpoint = 'https://halg-backend.herokuapp.com/api/accounts/update';
@@ -105,7 +112,7 @@ class AccountStudent extends Component {
 			.put(endpoint, accountUpdate)
 			.then(res => {
 				console.log(res.data);
-				this.props.history.push('/account');
+				this.props.history.push('/profile');
 			})
 			.catch(error => {
 				console.log('hellooo', error);

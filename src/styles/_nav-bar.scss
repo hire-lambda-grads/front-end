@@ -13,4 +13,31 @@
         max-width: 150px;
     }
 
+    .btn-red {
+        background-color: $lambda-red;
+        font-weight: 700;
+        color: $light-color;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        width: 80px;
+        text-align: center;
+        padding: 10px 0;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $contrast-red;
+
+            .fas {
+                float: right;
+                position: relative;
+                right: 15px;
+                -webkit-transition: float 1s;
+                /* Safari */
+                transition: transform 1s;
+            }
+        }
+    }
+
 }

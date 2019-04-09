@@ -26,27 +26,6 @@ h1 {
     /* Sass - Test delete it anytime */
 }
 
-.btn-red {
-    background-color: $lambda-red;
-    font-weight: 700;
-    color: $light-color;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    padding: 10px 22px;
-    border: none;
-    cursor: pointer;
-
-    &:hover {
-        background-color: $contrast-red;
-
-        .fas {
-            transform: rotate(90deg);
-            -webkit-transition: transform 1s;
-            /* Safari */
-            transition: transform 1s;
-        }
-    }
-}
 
 .btn-blue {
     background-color: $lambda-blue;
@@ -57,6 +36,7 @@ h1 {
     padding: 10px 22px;
     border: none;
     cursor: pointer;
+    text-decoration: none;
 
     &:hover {
         background-color: $contrast-blue;
