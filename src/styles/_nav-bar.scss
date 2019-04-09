@@ -1,6 +1,6 @@
 .top-bar {
     @include box-align(space-around, center);
-    padding: 10px;
+    padding: 5px;
     background-color: $light-color;
     position: fixed;
     top: 0;

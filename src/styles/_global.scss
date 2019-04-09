@@ -32,7 +32,7 @@ h1 {
     color: $light-color;
     border-radius: 4px;
     font-size: 1.2rem;
-    padding: 14px 22px;
+    padding: 10px 22px;
     border: none;
     cursor: pointer;
 
@@ -54,15 +54,11 @@ h1 {
     color: $light-color;
     border-radius: 4px;
     font-size: 1.2rem;
-    padding: 14px 22px;
+    padding: 10px 22px;
     border: none;
     cursor: pointer;
 
     &:hover {
         background-color: $contrast-blue;
     }
-}
-
-main {
-    padding-top: 70px;
 }

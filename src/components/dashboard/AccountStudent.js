@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import TextInput from './TextInput';
 import { withRouter, Link } from 'react-router-dom';
+import tokenConfig from '../../auth/tokenInterceptorConfig';
+
+axios.interceptors.request.use(tokenConfig);
 
 class AccountStudent extends Component {
 	state = {
@@ -91,16 +94,15 @@ class AccountStudent extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 
-		let payload = this.state;
-		let formData = new FormData();
-
-		formData.append('studentAccount', JSON.stringify(payload));
+		const accountUpdate = {
+			email: this.state.email,
+			first_name: this.state.first_name,
+			last_name: this.state.last_name
+		};
 
 		const endpoint = 'https://halg-backend.herokuapp.com/api/accounts/update';
-		// const endpoint = 'http://localhost:5000/api/students/update';
-
 		axios
-			.put(endpoint)
+			.put(endpoint, accountUpdate)
 			.then(res => {
 				console.log(res.data);
 				this.props.history.push('/account');
