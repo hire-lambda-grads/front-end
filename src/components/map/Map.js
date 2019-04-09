@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactMapGL from 'react-map-gl';
 
-const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+const MAPBOX_TOKEN = 'pk.eyJ1IjoidGljb3RoZXBzIiwiYSI6ImNqdTl4ZTRwYjBhdTY0M3FxZzhpY3FmZWcifQ.zt0JGIlN2B3nLi4d7yBaew';
 
 class Map extends React.Component {
 
   state = {
     viewport: {
-      width: 400,
-      height: 400,
-      latitude: 37.7577,
-      longitude: -122.4376,
-      zoom: 8
+      width: 1000,
+      height: 650,
+      latitude: 39.788260590328576,
+      longitude: -97.77255674948162,
+      zoom: 4
     }
   };
 
@@ -19,8 +19,8 @@ class Map extends React.Component {
     return (
       <ReactMapGL
         {...this.state.viewport}
-        mapboxApiAccessToken={MAPBOX_TOKEN}
         onViewportChange={(viewport) => this.setState({viewport})}
+        mapboxApiAccessToken={MAPBOX_TOKEN}
       />
     );
   }
