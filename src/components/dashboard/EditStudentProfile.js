@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import tokenConfig from '../../auth/tokenInterceptorConfig';
 import TextInput from './TextInput';
-// import FileInput from './FileInput';
 import { withRouter, Link } from 'react-router-dom';
+
+axios.interceptors.request.use(tokenConfig);
 
 class EditStudentProfile extends Component {
 	state = {
 		about: '',
 		cohort_id: null,
 		github: '',
-		job_searching: false,
 		linkedin: '',
 		location: '',
 		profile_pic: '',
@@ -52,11 +53,9 @@ class EditStudentProfile extends Component {
 					<div className="content-card">
 						<div className="card">
 							<div className="firstinfo">
-								<form onSubmit={this.handleSubmit}>
-									{/* <FileInput /> */}
-
+								<form onSubmit={this.handleSubmitImage}>
 									<div className="img-wrap">
-										<img src={this.state.profile_pic} alt="Profile Pictuare" />
+										<img src={this.state.profile_pic} alt="Profile" />
 									</div>
 
 									<h2>Upload Profile Picture:</h2>
@@ -67,6 +66,14 @@ class EditStudentProfile extends Component {
 											onChange={this.handleFileChange}
 										/>
 									</div>
+
+									<div>
+										<button className="btn-red" type="submit">
+											Upload <i className="fas fa-sign-in-alt" />
+										</button>
+									</div>
+								</form>
+								<form onSubmit={this.handleSubmitOther}>
 									<TextInput
 										id="website"
 										value={this.state.website}
@@ -130,49 +137,50 @@ class EditStudentProfile extends Component {
 		this.setState({ [name]: value });
 	};
 
-	handleSubmit = event => {
+	handleSubmitImage = event => {
+		event.preventDefault();
+		let formData = new FormData();
+		formData.append('image', this.state.image);
+		const endpoint = 'https://halg-backend.herokuapp.com/api/students/update/profile_picture';
+		
+		axios.put(endpoint, formData)
+			.then(res => {
+				console.log('response from axios put profile image', res);
+				this.props.history.push('/profile');
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	}
+
+	handleSubmitOther = event => {
 		event.preventDefault();
 
-		let payload = this.state;
-		delete payload.cohort_options;
-		delete payload.profile_pic;
-		delete payload.id;
+		const { image, profile_pic, cohort_options, ...payload } = this.state;
 		payload.cohort_id = 1;
-		let formData = new FormData();
-		formData.append('image', payload.image);
-		delete payload.image;
-		formData.append('studentInfo', JSON.stringify(payload));
 
 		const endpoint = 'https://halg-backend.herokuapp.com/api/students/update';
 		// const endpoint = 'http://localhost:5000/api/students/update';
 
 		axios
-			.put(endpoint, formData)
+			.put(endpoint, payload)
 			.then(res => {
 				this.props.history.push('/profile');
 			})
 			.catch(error => {
-				console.log('hellooo', error);
+				console.log('updating students error :(', error);
 			});
 	};
 
 	fetchStudentInfo = () => {
-		axios.interceptors.request.use(function(requestConfig) {
-			const token = localStorage.getItem('token');
-			requestConfig.headers.authorization = token;
-			return requestConfig;
-		});
+		
 		axios
 			.get('https://halg-backend.herokuapp.com/api/students/update')
 			// axios.get('http://localhost:5000/api/students/update')
 			.then(student => {
-				console.log(
-					'student data recieved from get /api/students/update',
-					student.data
-				);
-				this.setState({ ...student.data }, function() {
-					console.log(this.state);
-				});
+				console.log('fetched student data', student.data);
+				const { id, ...filtered } = student.data;
+				this.setState({ ...filtered });
 			})
 			.catch(err => {
 				console.log(err);

@@ -13,6 +13,7 @@ import Contact from './static-pages/Contact';
 import Account from './dashboard/AccountStudent';
 
 const Routes = props => {
+  const checkLoggedIn = props.checkLoggedIn;
   return ( 
     <Switch>
       <Route
@@ -34,7 +35,7 @@ const Routes = props => {
         path="/dashboard"
         render={props => {
           console.log(props);
-          return props.checkLoggedIn() ? (
+          return checkLoggedIn() ? (
             <EditStudentProfile {...props} />
           ) : (
             <Dashboard {...props} />
