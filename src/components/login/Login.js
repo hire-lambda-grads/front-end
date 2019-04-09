@@ -28,6 +28,7 @@ class Login extends React.Component {
 				</div>
 				<div className="form-box">
 					<form onSubmit={this.handleSubmit}>
+						<p>Have an account? Log in</p>
 						<div>
 							<label htmlFor="email" />
 							<input
@@ -56,9 +57,10 @@ class Login extends React.Component {
 								Login <i className="fas fa-sign-in-alt" />
 							</button>
 						</div>
+
 						<div className="signup-btn">
 							<Link to="/signup" className="btn-blue">
-								Sign Up <i className="fas fa-user-plus" />
+								<i className="fas fa-user-plus" /> Sign Up
 							</Link>
 						</div>
 					</form>

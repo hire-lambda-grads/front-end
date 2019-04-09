@@ -1,20 +1,9 @@
 .about-cards {
-
-
     .banner-about {
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./assets/about.jpg");
         background-image: -webkit-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./assets/about.jpg");
         background-image: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./assets/about.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-attachment: fixed;
-
-        @include box-align();
-        flex-direction: column;
-        min-height: 300px;
-        color: $light-color;
-        text-transform: uppercase;
+        @extend %general-headers;
 
 
         .code-logos {
@@ -28,6 +17,8 @@
             }
         }
     }
+
+
 
     .cards-container {
         margin: 50px auto;
