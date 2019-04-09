@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import LinkInput from './LinkInput';
+import TextInput from './TextInput';
 import { withRouter, Link } from 'react-router-dom';
 
 class AccountStudent extends Component {
@@ -46,21 +46,21 @@ class AccountStudent extends Component {
 						<div className="card">
 							<div className="firstinfo">
 								<form onSubmit={this.handleSubmit}>
-									<LinkInput
+									<TextInput
 										id="first_name"
 										value={this.state.first_name}
 										label="First name:"
 										placeholder="name"
 										handleInputChange={this.handleInputChange}
 									/>
-									<LinkInput
+									<TextInput
 										id="last_name"
 										value={this.state.last_name}
 										label="Last Name:"
 										placeholder="last name"
 										handleInputChange={this.handleInputChange}
 									/>
-									<LinkInput
+									<TextInput
 										id="email"
 										value={this.state.email}
 										label="Email:"
