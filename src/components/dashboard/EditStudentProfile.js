@@ -142,10 +142,9 @@ class EditStudentProfile extends Component {
 		let formData = new FormData();
 		formData.append('image', this.state.image);
 		const endpoint = 'https://halg-backend.herokuapp.com/api/students/update/profile_picture';
-		
+
 		axios.put(endpoint, formData)
 			.then(res => {
-				console.log('response from axios put profile image', res);
 				this.props.history.push('/profile');
 			})
 			.catch(err => {
@@ -178,7 +177,6 @@ class EditStudentProfile extends Component {
 			.get('https://halg-backend.herokuapp.com/api/students/update')
 			// axios.get('http://localhost:5000/api/students/update')
 			.then(student => {
-				console.log('fetched student data', student.data);
 				const { id, ...filtered } = student.data;
 				this.setState({ ...filtered });
 			})

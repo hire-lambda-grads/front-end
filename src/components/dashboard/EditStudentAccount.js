@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import tokenConfig from '../../auth/tokenInterceptorConfig';
 import TextInput from './TextInput';
 import { withRouter, Link } from 'react-router-dom';
 
-class AccountStudent extends Component {
+axios.interceptors.request.use(tokenConfig);
+
+class EditStudentAccount extends Component {
 	state = {
 		email: '',
 		first_name: '',
-		last_name: '',
-		verified_student: false,
-		role: ''
+		last_name: ''
 	};
-
-	fileInput = React.createRef();
 
 	componentDidMount() {
 		this.fetchStudentAccount();
@@ -91,19 +90,15 @@ class AccountStudent extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 
-		let payload = this.state;
-		let formData = new FormData();
-
-		formData.append('studentAccount', JSON.stringify(payload));
-
 		const endpoint = 'https://halg-backend.herokuapp.com/api/accounts/update';
 		// const endpoint = 'http://localhost:5000/api/students/update';
 
+		const { role, verified_student, ...filteredState } = this.state;
+
 		axios
-			.put(endpoint)
+			.put(endpoint, filteredState)
 			.then(res => {
-				console.log(res.data);
-				this.props.history.push('/account');
+				this.props.history.push('/profile');
 			})
 			.catch(error => {
 				console.log('hellooo', error);
@@ -111,22 +106,11 @@ class AccountStudent extends Component {
 	};
 
 	fetchStudentAccount = () => {
-		axios.interceptors.request.use(function(requestConfig) {
-			const token = localStorage.getItem('token');
-			requestConfig.headers.authorization = token;
-			return requestConfig;
-		});
 		axios
 			.get('https://halg-backend.herokuapp.com/api/accounts/update')
 			// axios.get('http://localhost:5000/api/students/update')
 			.then(student => {
-				console.log(
-					'student data recieved from get /api/students/update',
-					student.data
-				);
-				this.setState({ ...student.data }, function() {
-					console.log(this.state);
-				});
+				this.setState({ ...student.data });
 			})
 			.catch(err => {
 				console.log(err);
@@ -134,4 +118,4 @@ class AccountStudent extends Component {
 	};
 }
 
-export default withRouter(AccountStudent);
+export default withRouter(EditStudentAccount);
