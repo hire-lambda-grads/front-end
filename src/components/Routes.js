@@ -10,7 +10,7 @@ import EditStudentProfile from './dashboard/EditStudentProfile';
 import Profile from './dashboard/Profile';
 import Privacy from './static-pages/PrivacyPolicy';
 import Contact from './static-pages/Contact';
-import Account from './dashboard/AccountStudent';
+import EditStudentAccount from './dashboard/EditStudentAccount';
 
 const Routes = props => {
   const checkLoggedIn = props.checkLoggedIn;
@@ -53,7 +53,7 @@ const Routes = props => {
         path="/account"
         render={props => {
           console.log(props);
-          return <Account {...props} />;
+          return <EditStudentAccount {...props} />;
         }}
       />
       <Route

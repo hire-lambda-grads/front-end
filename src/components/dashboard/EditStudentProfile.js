@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import tokenConfig from '../../auth/tokenInterceptorConfig';
-import TextInput from './TextInput';
+import Input from './Input';
 import { withRouter, Link } from 'react-router-dom';
 
 axios.interceptors.request.use(tokenConfig);
@@ -71,35 +71,6 @@ class EditStudentProfile extends Component {
 									</button>
 								</form>
 								<form onSubmit={this.handleSubmitOther}>
-									<TextInput
-										id="website"
-										value={this.state.website}
-										label="Personal Website (optional):"
-										placeholder="link to your personal website"
-										handleInputChange={this.handleInputChange}
-									/>
-									<TextInput
-										id="linkedin"
-										value={this.state.linkedin}
-										label="LinkedIn:"
-										placeholder="link to your LinkedIn profile"
-										handleInputChange={this.handleInputChange}
-									/>
-									<TextInput
-										id="github"
-										value={this.state.github}
-										label="GitHub:"
-										placeholder="link to your GitHub profile"
-										handleInputChange={this.handleInputChange}
-									/>
-									<TextInput
-										id="twitter"
-										value={this.state.twitter}
-										label="Twitter (optional):"
-										placeholder="link to your Twitter profile"
-										handleInputChange={this.handleInputChange}
-									/>
-
 									<div>
 										<label htmlFor="about">About Me:</label>
 										<textarea
@@ -113,6 +84,56 @@ class EditStudentProfile extends Component {
 											rows="5"
 										/>
 									</div>
+
+									<Input
+										id="location"
+										value={this.state.location}
+										label="Location (postal code):"
+										placeholder="zip code or postal code"
+										handleInputChange={this.handleInputChange}
+										type="number"
+									/>
+									<div className="onoffswitch">
+										<label>Willing to relocate?</label>
+										<input type="checkbox" name="relocatable" className="onoffswitch-checkbox" id="relocatable" checked={this.state.relocatable} onChange={this.handleInputChange} />
+										<label className="onoffswitch-label" htmlFor="relocatable">
+											<span className="onoffswitch-inner"></span>
+											<span className="onoffswitch-switch"></span>
+										</label>
+									</div>
+
+									<Input
+										id="linkedin"
+										value={this.state.linkedin}
+										label="LinkedIn:"
+										placeholder="link to your LinkedIn profile"
+										handleInputChange={this.handleInputChange}
+										type="text"
+									/>
+									<Input
+										id="github"
+										value={this.state.github}
+										label="GitHub:"
+										placeholder="link to your GitHub profile"
+										handleInputChange={this.handleInputChange}
+										type="text"
+									/>
+									<Input
+										id="twitter"
+										value={this.state.twitter}
+										label="Twitter (optional):"
+										placeholder="link to your Twitter profile"
+										handleInputChange={this.handleInputChange}
+										type="text"
+									/>
+									<Input
+										id="website"
+										value={this.state.website}
+										label="Personal Website (optional):"
+										placeholder="link to your personal website"
+										handleInputChange={this.handleInputChange}
+										type="text"
+									/>
 
 									<button className="btn-red" type="submit">
 										Update Profile <i className="fas fa-sign-in-alt" />
@@ -130,9 +151,9 @@ class EditStudentProfile extends Component {
 		this.setState({ image: event.target.files[0] });
 	};
 	handleInputChange = event => {
-		const { name, value } = event.target;
-
-		this.setState({ [name]: value });
+		const target = event.target;
+		const value = target.type === 'checkbox' ? target.checked : target.value;
+		this.setState({ [target.name]: value });
 	};
 
 	handleSubmitImage = event => {
@@ -141,11 +162,9 @@ class EditStudentProfile extends Component {
 		formData.append('image', this.state.image);
 		const endpoint =
 			'https://halg-backend.herokuapp.com/api/students/update/profile_picture';
-
 		axios
 			.put(endpoint, formData)
 			.then(res => {
-				console.log('response from axios put profile image', res);
 				this.props.history.push('/profile');
 			})
 			.catch(err => {
@@ -160,7 +179,6 @@ class EditStudentProfile extends Component {
 		payload.cohort_id = 1;
 
 		const endpoint = 'https://halg-backend.herokuapp.com/api/students/update';
-		// const endpoint = 'http://localhost:5000/api/students/update';
 
 		axios
 			.put(endpoint, payload)
@@ -175,15 +193,13 @@ class EditStudentProfile extends Component {
 	fetchStudentInfo = () => {
 		axios
 			.get('https://halg-backend.herokuapp.com/api/students/update')
-			// axios.get('http://localhost:5000/api/students/update')
-			.then(student => {
-				console.log('fetched student data', student.data);
-				const { id, ...filtered } = student.data;
-				this.setState({ ...filtered });
-			})
-			.catch(err => {
-				console.log(err);
-			});
+				.then(student => {
+					const { id, ...filtered } = student.data;
+					this.setState({ ...filtered });
+				})
+				.catch(err => {
+					console.log(err);
+				});
 	};
 }
 
