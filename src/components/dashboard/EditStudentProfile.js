@@ -74,6 +74,15 @@ class EditStudentProfile extends Component {
 									</div>
 								</form>
 								<form onSubmit={this.handleSubmitOther}>
+								<div class="onoffswitch">
+									<label>Willing to relocate?</label>
+									<input type="checkbox" name="relocatable" class="onoffswitch-checkbox" id="myonoffswitch" checked={this.state.relocatable} />
+									<label class="onoffswitch-label" for="myonoffswitch">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+
 									<TextInput
 										id="website"
 										value={this.state.website}
@@ -132,7 +141,8 @@ class EditStudentProfile extends Component {
 		this.setState({ image: event.target.files[0] });
 	};
 	handleInputChange = event => {
-		const { name, value } = event.target;
+		const target = event.target;
+		const value = target.type === 'checkbox' ? target.checked : target.value;
 
 		this.setState({ [name]: value });
 	};
