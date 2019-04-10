@@ -16,7 +16,7 @@ $primary-color: #333;
         video {
             position: absolute;
             width: 100%;
-            z-index: 0;
+            z-index: 0git;
 
         }
 
@@ -80,22 +80,23 @@ $primary-color: #333;
         @include box-align();
         z-index: 8;
         width: 100%;
-        max-width: 1000px;
+        max-width: 1023px;
         margin-top: -100px;
         margin: 0 auto;
         background-color: $bag-color;
         min-height: 700px;
-        padding: 20px;
+        padding: 10px;
 
         .card {
-            @include dimensions(250px, 100px);
-            padding: 20px;
+            @include dimensions(210px, 100px);
+            padding: 10px;
             border-radius: 3px;
             background-color: $light-color;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
-            margin: 20px;
+            margin: 10px;
+            box-sizing: content-box;
 
             &:after {
                 content: '';
