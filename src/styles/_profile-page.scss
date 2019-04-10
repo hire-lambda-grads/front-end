@@ -42,9 +42,9 @@
             &:after {
                 content: '';
                 display: block;
-                width: 500px;
-                height: 900px;
-                background: $lambda-red;
+                width: 360px;
+                height: 430px;
+                background: $lambda-blue;
                 position: absolute;
                 animation: rotatemagic 0.75s cubic-bezier(0.425, 1.040, 0.470, 1.105) 1s both;
             }

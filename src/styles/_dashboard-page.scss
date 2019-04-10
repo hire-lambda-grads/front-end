@@ -42,8 +42,8 @@
                 content: '';
                 opacity: 0.4;
                 display: block;
-                width: 500px;
-                height: 900px;
+                width: 360px;
+                height: 430px;
                 background: $lambda-blue;
                 position: absolute;
                 animation: rotatemagic 0.75s cubic-bezier(0.425, 1.040, 0.470, 1.105) 1s both;
@@ -171,15 +171,6 @@
                     &:hover {
                         background-color: $contrast-red;
                         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-
-                        // .fas {
- //     float: right;
- //     position: relative;
- //     right: 25%;
- //     -webkit-transition: float s;
- //     /* Safari */
- //     transition: transform 1s;
- // }
                     }
 
                 }
