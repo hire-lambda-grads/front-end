@@ -42,12 +42,25 @@ class Profile extends Component {
 					<div className="content-card">
 						<div className="card">
 							<div className="firstinfo">
-								<div className="img-wrap">
-									<img src={this.state.profile_pic} alt="Profile Pictuare" />
+								<div className="name-box">
+									<div className="img-wrap">
+										<img src={this.state.profile_pic} alt="Profile Pictuare" />
+									</div>
+									<h1>
+										{this.state.first_name} {this.state.last_name}
+									</h1>
+									<h2>
+										{' '}
+										<a
+											href={`${this.state.website}`}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<i className="fas fa-globe-americas" />
+											{this.state.website}
+										</a>
+									</h2>
 								</div>
-								<h1>
-									{this.state.first_name} {this.state.last_name}
-								</h1>
 								<div className="profileinfo">
 									<div className="bio">
 										<h2>{this.state.track}</h2>

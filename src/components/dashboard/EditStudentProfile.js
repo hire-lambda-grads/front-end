@@ -53,25 +53,22 @@ class EditStudentProfile extends Component {
 					<div className="content-card">
 						<div className="card">
 							<div className="firstinfo">
-								<form onSubmit={this.handleSubmitImage}>
+								<form onSubmit={this.handleSubmitImage} className="picture-box">
 									<div className="img-wrap">
 										<img src={this.state.profile_pic} alt="Profile" />
 									</div>
 
 									<h2>Upload Profile Picture:</h2>
-									<div>
-										<input
-											type="file"
-											name="image"
-											onChange={this.handleFileChange}
-										/>
-									</div>
 
-									<div>
-										<button className="btn-red" type="submit">
-											Upload <i className="fas fa-sign-in-alt" />
-										</button>
-									</div>
+									<input
+										type="file"
+										name="image"
+										onChange={this.handleFileChange}
+									/>
+
+									<button className="btn-upload" type="submit">
+										<i className="fas fa-cloud-upload-alt" /> Upload
+									</button>
 								</form>
 								<form onSubmit={this.handleSubmitOther}>
 								<div class="onoffswitch">
@@ -121,13 +118,14 @@ class EditStudentProfile extends Component {
 											onChange={this.handleInputChange}
 											type="text"
 											placeholder="About Me"
+											cols="30"
+											rows="5"
 										/>
 									</div>
-									<div>
-										<button className="btn-red" type="submit">
-											Update Profile <i className="fas fa-sign-in-alt" />
-										</button>
-									</div>
+
+									<button className="btn-red" type="submit">
+										Update Profile <i className="fas fa-sign-in-alt" />
+									</button>
 								</form>
 							</div>
 						</div>
@@ -151,16 +149,18 @@ class EditStudentProfile extends Component {
 		event.preventDefault();
 		let formData = new FormData();
 		formData.append('image', this.state.image);
-		const endpoint = 'https://halg-backend.herokuapp.com/api/students/update/profile_picture';
+		const endpoint =
+			'https://halg-backend.herokuapp.com/api/students/update/profile_picture';
 
-		axios.put(endpoint, formData)
+		axios
+			.put(endpoint, formData)
 			.then(res => {
 				this.props.history.push('/profile');
 			})
 			.catch(err => {
 				console.log(err);
 			});
-	}
+	};
 
 	handleSubmitOther = event => {
 		event.preventDefault();
@@ -182,7 +182,6 @@ class EditStudentProfile extends Component {
 	};
 
 	fetchStudentInfo = () => {
-		
 		axios
 			.get('https://halg-backend.herokuapp.com/api/students/update')
 			// axios.get('http://localhost:5000/api/students/update')

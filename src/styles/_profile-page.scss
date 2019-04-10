@@ -3,17 +3,7 @@
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./assets/register-image.jpg");
         background-image: -webkit-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./assets/register-image.jpg");
         background-image: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./assets/register-image.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-attachment: fixed;
-
-        @include box-align();
-        flex-direction: column;
-        min-height: 300px;
-        color: $light-color;
-        text-transform: uppercase;
-
+        @extend %general-headers;
 
         .code-logos {
             @include box-align();
@@ -27,31 +17,8 @@
         }
     }
 
+    @extend %header-bar;
 
-    .options-bar {
-        @include box-align();
-        padding: 5px;
-        background-color: $lambda-blue;
-        margin-bottom: 50px;
-
-        .btn-options {
-            margin: 15px;
-            background-color: $contrast-blue;
-            font-weight: 400;
-            color: $light-color;
-            border-radius: 4px;
-            font-size: 1.4rem;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-
-            &:hover {
-                background-color: lighten($contrast-blue, 10%);
-                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-            }
-        }
-
-    }
 
     .wrap-card {
         @include box-align();
@@ -64,7 +31,7 @@
         }
 
         .card {
-            @include dimensions(500px, 100px);
+            @include dimensions(1000px, 100px);
             padding: 20px;
             border-radius: 3px;
             background-color: $light-color;
@@ -77,7 +44,7 @@
                 display: block;
                 width: 500px;
                 height: 900px;
-                background: $lambda-blue;
+                background: $lambda-red;
                 position: absolute;
                 animation: rotatemagic 0.75s cubic-bezier(0.425, 1.040, 0.470, 1.105) 1s both;
             }
@@ -90,7 +57,7 @@
             padding: 10px 20px;
             border-radius: 3px;
             background-color: $light-color;
-            width: 480px;
+            width: 980px;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
             position: absolute;
             z-index: -1;
@@ -126,15 +93,43 @@
             z-index: 2;
             position: relative;
 
-            .img-wrap {
-                border-radius: 50%;
-                overflow: hidden;
-                width: 200px;
-                height: 200px;
+            .name-box {
+                width: 30%;
+                @include box-align();
+                flex-direction: column;
 
-                img {
-                    width: 100%;
-                    height: auto;
+                .img-wrap {
+                    border-radius: 50%;
+                    overflow: hidden;
+                    width: 150px;
+                    height: 150px;
+                    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+                    margin-bottom: 20px;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                }
+
+                h1 {
+                    color: $light-color;
+                    margin-bottom: 10px;
+                }
+
+                h2 {
+                    color: $light-color;
+                    font-size: 1.4rem;
+
+                    a {
+                        color: $light-color;
+                        text-decoration: none;
+
+                        i {
+                            margin-right: 5px;
+                        }
+                    }
                 }
 
             }
@@ -142,19 +137,22 @@
 
             .profileinfo {
                 padding: 0px 20px;
+                width: 70%;
+
+                h2 {
+                    color: $dark-color;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                    text-align: center
+                }
 
                 h1 {
                     font-size: 2rem;
                     margin-bottom: 10px;
                 }
 
-                h2 {
-                    color: $lambda-red;
-                    font-size: 1.8rem;
-                    font-weight: 700;
-                    margin-bottom: 20px;
-                    text-align: center;
-                }
+
 
                 h3 {
                     font-size: 1.6rem;

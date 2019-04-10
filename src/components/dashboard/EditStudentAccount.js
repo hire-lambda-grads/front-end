@@ -3,6 +3,7 @@ import axios from 'axios';
 import tokenConfig from '../../auth/tokenInterceptorConfig';
 import TextInput from './TextInput';
 import { withRouter, Link } from 'react-router-dom';
+import tokenConfig from '../../auth/tokenInterceptorConfig';
 
 axios.interceptors.request.use(tokenConfig);
 
@@ -66,12 +67,17 @@ class EditStudentAccount extends Component {
 										placeholder="email"
 										handleInputChange={this.handleInputChange}
 									/>
+									{/* <TextInput
+										id="password"
+										value={this.state.password}
+										label="Password:"
+										placeholder="password"
+										handleInputChange={this.handleInputChange}
+									/> */}
 
-									<div>
-										<button className="btn-red" type="submit">
-											Update Account Info <i className="fas fa-sign-in-alt" />
-										</button>
-									</div>
+									<button className="btn-red" type="submit">
+										Update Account <i className="fas fa-sign-in-alt" />
+									</button>
 								</form>
 							</div>
 						</div>
