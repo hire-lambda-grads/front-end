@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import tokenConfig from '../../auth/tokenInterceptorConfig';
-import TextInput from './TextInput';
+import Input from './Input';
 import { withRouter, Link } from 'react-router-dom';
-import tokenConfig from '../../auth/tokenInterceptorConfig';
 
 axios.interceptors.request.use(tokenConfig);
 
@@ -46,28 +45,31 @@ class EditStudentAccount extends Component {
 						<div className="card">
 							<div className="firstinfo">
 								<form onSubmit={this.handleSubmit}>
-									<TextInput
+									<Input
 										id="first_name"
 										value={this.state.first_name}
 										label="First name:"
-										placeholder="name"
+										placeholder="first name"
 										handleInputChange={this.handleInputChange}
+										type="text"
 									/>
-									<TextInput
+									<Input
 										id="last_name"
 										value={this.state.last_name}
 										label="Last Name:"
 										placeholder="last name"
 										handleInputChange={this.handleInputChange}
+										type="text"
 									/>
-									<TextInput
+									<Input
 										id="email"
 										value={this.state.email}
 										label="Email:"
 										placeholder="email"
 										handleInputChange={this.handleInputChange}
+										type="text"
 									/>
-									{/* <TextInput
+									{/* <Input
 										id="password"
 										value={this.state.password}
 										label="Password:"
@@ -97,8 +99,6 @@ class EditStudentAccount extends Component {
 		event.preventDefault();
 
 		const endpoint = 'https://halg-backend.herokuapp.com/api/accounts/update';
-		// const endpoint = 'http://localhost:5000/api/students/update';
-
 		const { role, verified_student, ...filteredState } = this.state;
 
 		axios
@@ -114,13 +114,12 @@ class EditStudentAccount extends Component {
 	fetchStudentAccount = () => {
 		axios
 			.get('https://halg-backend.herokuapp.com/api/accounts/update')
-			// axios.get('http://localhost:5000/api/students/update')
-			.then(student => {
-				this.setState({ ...student.data });
-			})
-			.catch(err => {
-				console.log(err);
-			});
+				.then(student => {
+					this.setState({ ...student.data });
+				})
+				.catch(err => {
+					console.log(err);
+				});
 	};
 }
 
