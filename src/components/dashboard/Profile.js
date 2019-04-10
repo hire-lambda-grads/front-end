@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter, Link } from 'react-router-dom';
+import tokenConfig from '../../auth/tokenInterceptorConfig';
+
+axios.interceptors.request.use(tokenConfig);
 
 class Profile extends Component {
 	state = {};
@@ -108,20 +111,10 @@ class Profile extends Component {
 	}
 
 	fetchStudentInfo = () => {
-		axios.interceptors.request.use(function(requestConfig) {
-			const token = localStorage.getItem('token');
-			requestConfig.headers.authorization = token;
-			return requestConfig;
-		});
 		axios
 			.get(`https://halg-backend.herokuapp.com/api/students/profile`)
 			.then(student => {
-				console.log(
-					'this is the student we get back when fetching',
-					student.data
-				);
 				this.setState({ ...student.data });
-				// console.log('this should be the new state', this.state);
 			})
 			.catch(err => {
 				console.log('the get students thingy failed', err);
@@ -130,7 +123,6 @@ class Profile extends Component {
 
 	logout = event => {
 		localStorage.removeItem('token');
-
 		this.props.history.push('/login');
 	};
 }
