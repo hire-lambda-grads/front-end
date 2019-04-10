@@ -31,28 +31,7 @@ class Signup extends React.Component {
 				</div>
 				<div className="form-box">
 					<form onSubmit={this.handleSubmit}>
-						<div>
-							<label htmlFor="email" />
-							<input
-								name="email"
-								id="email"
-								value={this.state.email}
-								onChange={this.handleInputChange}
-								type="text"
-								placeholder="Email Address"
-							/>
-						</div>
-						<div>
-							<label htmlFor="password" />
-							<input
-								name="password"
-								id="password"
-								value={this.state.password}
-								onChange={this.handleInputChange}
-								type="password"
-								placeholder="Password"
-							/>
-						</div>
+						<p>SignUp is free</p>
 						<div>
 							<label htmlFor="first_name" />
 							<input
@@ -75,6 +54,29 @@ class Signup extends React.Component {
 								placeholder="Last Name"
 							/>
 						</div>
+						<div>
+							<label htmlFor="email" />
+							<input
+								name="email"
+								id="email"
+								value={this.state.email}
+								onChange={this.handleInputChange}
+								type="text"
+								placeholder="Email Address"
+							/>
+						</div>
+						<div>
+							<label htmlFor="password" />
+							<input
+								name="password"
+								id="password"
+								value={this.state.password}
+								onChange={this.handleInputChange}
+								type="password"
+								placeholder="Password"
+							/>
+						</div>
+
 						<div>
 							<button className="btn-red" type="submit">
 								Register <i className="far fa-clipboard" />
