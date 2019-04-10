@@ -90,22 +90,18 @@ class Signup extends React.Component {
 
 	handleInputChange = event => {
 		const { name, value } = event.target;
-		console.log(value);
 		this.setState({ [name]: value });
 	};
 
 	handleSubmit = event => {
-		console.log('handling submit');
 		event.preventDefault();
 
 		const endpoint = 'https://halg-backend.herokuapp.com/api/auth/register';
-		// const endpoint = 'http://localhost:5000/api/auth/register';
 
 		axios
 			.post(endpoint, this.state)
 			.then(res => {
 				localStorage.setItem('token', res.data.token);
-				console.log('successfully submitted');
 				this.props.history.push('/login');
 			})
 			.catch(error => console.error(error));
