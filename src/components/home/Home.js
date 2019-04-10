@@ -1,21 +1,40 @@
 import React from 'react';
-import ReactMap from '../reactMap/ReactMap';
-import Travaho from '../../assets/Travaho.mp4';
-import Whiteboard from '../../assets/Whiteboard.mp4';
+// import axios from 'axios';
+// import { withRouter, Link } from 'react-router-dom';
+// import ReactMap from '../reactMap/ReactMap';
+import HireVideo from '../../assets/hire-lambda.mp4';
+import Cards from './Cards';
 
-const Home = () => {
-	return (
-		<div>
-			<h1>Home/Landing Page</h1>
-			<video className="bg-video" autoPlay loop muted>
-				<source src={Travaho} type="video/mp4" />
-			</video>
-			<ReactMap />
-			<video className="bg-video" autoPlay loop muted>
-				<source src={Whiteboard} type="video/mp4" />
-			</video>
-		</div>
-	);
-};
+class Home extends React.Component {
+	render() {
+		return (
+			<div className="home-page">
+				<div className="video-container">
+					<video autoPlay loop muted>
+						<source src={HireVideo} type="video/mp4" />
+					</video>
+					<div className="search-box">
+						<form className="search-bar">
+							<h1>Candidates groomed for your business</h1>
+							<input
+								type="text"
+								name="search"
+								value=""
+								placeholder="Start your search here"
+							/>
+							<button className="search-btn" type="submit">
+								<i className="fas fa-search" />
+							</button>
+						</form>
+					</div>
+				</div>
+				{/* <ReactMap /> */}
+				<div className="search-container">
+					<Cards />
+				</div>
+			</div>
+		);
+	}
+}
 
 export default Home;
