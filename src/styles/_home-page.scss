@@ -134,6 +134,21 @@ $primary-color: #333;
 
                 }
 
+                .btn-card {
+                        background-color: $contrast-blue;
+    font-weight: 400;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    width: 100px;
+    text-align: center;
+    padding: 10px 0;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+                }
+
                 .img-wrap {
                     border-radius: 50%;
                     overflow: hidden;
@@ -157,6 +172,7 @@ $primary-color: #333;
                     font-size: 1.8rem;
                     margin-bottom: 10px;
                     letter-spacing: 2px;
+                    text-transform: upercasse
                 }
 
                 h2 {

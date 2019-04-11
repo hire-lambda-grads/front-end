@@ -1,16 +1,12 @@
 import React from 'react'
-import { Route, NavLink, withRouter, browserHistory } from 'react-router-dom';
+import { Route, Link, withRouter, browserHistory } from 'react-router-dom';
 
 
 export default function Cards(props) {
 	console.log('cars from cards', props)
-	const {website, first_name, skills, profile_pic, track, relocatable, last_name} = props.cards;
-  console.log("here",props.match.params)
-
-
-
-    //   const cards = cards.find(cards => `${props.cards.id}` === id); 
+	const {id, website, first_name, skills, profile_pic, track, relocatable, last_name} = props.cards;
   
+ 
   
   return (
 	<>
@@ -25,6 +21,7 @@ export default function Cards(props) {
 								<hr/>
 								<p>Skills: {skills} JS, React.JS, Python, Node.JS</p>
 								<p>Location: USA</p>
+								<Link to={`/cards/${id}`} className="btn-card" > Lear More ..</Link>
 						</div>
 					</div>
 				</div>

@@ -23,6 +23,9 @@ class Home extends React.Component {
 			})
 	}
 
+
+
+	
 	render() {
 	
 		return (
@@ -52,11 +55,11 @@ class Home extends React.Component {
 
 				<div className="search-container">
 					{this.state.cards.map(cards => (
-					 <Link to={`/cards/${cards.id}`} key={cards.id}>
+					
 						
 					 <Cards {...this.props} cards={cards}/>
 				
-					 </Link>
+					
 					)) }
 					</div>
 				
