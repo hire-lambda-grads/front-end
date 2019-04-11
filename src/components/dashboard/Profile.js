@@ -53,7 +53,6 @@ class Profile extends Component {
 										{this.state.first_name} {this.state.last_name}
 									</h1>
 									<h2>
-										{' '}
 										<a
 											href={`${this.state.website}`}
 											target="_blank"
