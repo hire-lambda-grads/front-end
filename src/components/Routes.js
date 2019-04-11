@@ -11,6 +11,7 @@ import EditStudentProfile from './dashboard/EditStudentProfile';
 import Profile from './dashboard/Profile';
 import Privacy from './static-pages/PrivacyPolicy';
 import Contact from './static-pages/Contact';
+import Card from './home/Card';
 import EditStudentAccount from './dashboard/EditStudentAccount';
 
 const Routes = props => {
@@ -26,10 +27,10 @@ const Routes = props => {
         }}
       />
         <Route
-        path="https://halg-backend.herokuapp.com/api/students"
+        path="/cards/:id"
         render={props => {
           console.log(props);
-          return <Cards {...props} />;
+          return <Card {...props} />;
         }}
       />
        {/* <Route
