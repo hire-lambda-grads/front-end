@@ -26,12 +26,19 @@ const Routes = props => {
         }}
       />
         <Route
-        path="/cards/:id"
+        path="https://halg-backend.herokuapp.com/api/students"
         render={props => {
           console.log(props);
           return <Cards {...props} />;
         }}
       />
+       {/* <Route
+        path="/loacation"
+        render={props => {
+          console.log(props);
+          return <Map {...props} />;
+        }}
+      /> */}
       <Route
         path="/about"
         render={props => {

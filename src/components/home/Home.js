@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter, Link } from 'react-router-dom';
-import ReactMap from '../reactMap/ReactMap';
+// import ReactMap from '../reactMap/ReactMap';
 import HireVideo from '../../assets/hire-lambda.mp4';
 import Cards from './Cards';
 import Map from '../map/Map';
@@ -24,8 +24,7 @@ class Home extends React.Component {
 	}
 
 	render() {
-
-		
+	
 		return (
 			<div className="home-page">
 						
@@ -53,7 +52,7 @@ class Home extends React.Component {
 
 				<div className="search-container">
 					{this.state.cards.map(cards => (
-					 <Link to={`/cards/${cards.first_name}-${cards.last_name}`} key={cards.id}>
+					 <Link to={`/cards/${cards.id}`} key={cards.id}>
 						
 					 <Cards {...this.props} cards={cards}/>
 				
