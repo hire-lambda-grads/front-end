@@ -32,16 +32,7 @@ class Profile extends Component {
 						<i className="fab fa-android" />
 					</div>
 				</div>
-				<div className="options-bar">
-					<Link to="/account" className="btn-options">
-						Edit Account <i className="fas fa-edit" />
-					</Link>
-					<Link to="/dashboard" className="btn-options">
-						Edit Profile <i className="fas fa-edit" />
-					</Link>
-					<button className="btn-options" onClick={this.logout}>
-						Logout <i className="fas fa-sign-out-alt" />
-					</button>
+			
 				</div>
 				<div className="wrap-card">
 					<div className="content-card">
