@@ -1,16 +1,31 @@
 import React from 'react';
 
-const Map = () => {
-	return (
-		<div>
-			<h1>Super Dope ReactMap Goes Here</h1>
-			<h3>There will be two kinds of markers on this map</h3>
-			<h4>Red Markers: Students that are Searching for Jobs</h4>
-			<h4>
-				Blue Markers: Students that have been hired through HireLambdaGrads.com
-			</h4>
-		</div>
-	);
-};
+import MapGL from 'react-map-gl';
+
+const MAPBOX_TOKEN = 'pk.eyJ1IjoidGljb3RoZXBzIiwiYSI6ImNqdTl4ZTRwYjBhdTY0M3FxZzhpY3FmZWcifQ.zt0JGIlN2B3nLi4d7yBaew';
+
+class Map extends React.Component {
+
+  state = {
+    viewport: {
+      width: 1000,
+      height: 650,
+      latitude: 39.788260590328576,
+      longitude: -97.77255674948162,
+      zoom: 4
+    }
+  };
+
+  render() {
+    return (
+      <MapGL
+        {...this.state.viewport}
+        onViewportChange={(viewport) => this.setState({viewport})}
+        mapboxApiAccessToken={MAPBOX_TOKEN}
+      >
+      </MapGL>
+    );
+  }
+}
 
 export default Map;
