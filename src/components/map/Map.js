@@ -1,4 +1,5 @@
 import React from "react";
+import {render} from 'react-dom';
 import ReactMapGL, {FullscreenControl} from "react-map-gl";
 
 const MAPBOX_TOKEN =
@@ -22,21 +23,19 @@ class Map extends React.Component {
     }
   };
 
-  _goToNYC = () => {
-    const viewport = {
-      ...this.state.viewport,
-      longitude: -74.1,
-      latitude: 40.7
-    };
-    this.setState({ viewport });
-  };
+  _updateViewport = (viewport) => {
+    this.setState({viewport});
+  }
 
   render() {
+
+	const {viewport} = this.state;
+
     return (
       <ReactMapGL
-        {...this.state.viewport}
-        mapStyle="mapbox://styles/mapbox/dark-v9"
-        onViewportChange={viewport => this.setState({ viewport })}
+        {...viewport}
+        mapStyle="mapbox://styles/mapbox/streets-v11"
+        onViewportChange={this._updateViewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >
         <div className="fullscreen" style={fullscreenControlStyle}>
