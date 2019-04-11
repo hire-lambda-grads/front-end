@@ -7,7 +7,7 @@ import StudentPin from './student-pin';
 import StudentInfo from './student-info';
 
 const MAPBOX_TOKEN =
-  "pk.eyJ1IjoidGljb3RoZXBzIiwiYSI6ImNqdTl4ZTRwYjBhdTY0M3FxZzhpY3FmZWcifQ.zt0JGIlN2B3nLi4d7yBaew";
+  "pk.eyJ1IjoidGljb3RoZXBzIiwiYSI6ImNqdWRhNmU1NzA1YW40NG10NTVmOTN3bzYifQ.bfS4tIioMohJierkQUueEA";
 
 const fullscreenControlStyle = {
   position: "absolute",
