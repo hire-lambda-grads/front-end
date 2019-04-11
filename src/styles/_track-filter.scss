@@ -1,0 +1,40 @@
+@mixin alternate-track {
+  background-color: rgba(0,0,0,0.75);
+  color: white;
+}
+@mixin default-track {
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.3);
+  color: inherit;
+}
+
+.track-filter-container {
+  margin: 0 auto;
+  padding: 24px;
+  width: 800px;
+}
+
+.tracks {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.track {
+  @include default-track();
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 2rem;
+  margin: 4px;
+  padding: 16px;
+  &:hover {
+    @include alternate-track();
+  }
+  &.is-active {
+    @include alternate-track();
+    &:hover {
+      @include default-track();
+    }
+  }
+}
