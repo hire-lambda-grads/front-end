@@ -7,8 +7,8 @@ export default function Card (props) {
     const { id } = match.params;
 
 
-      const cards = cards.find(student => `${student.id}` === id); // Look for where "id" is descturctered
-  console.log(': ', );
+      const cards = cards.find(cards => `${cards.id}` === id); 
+
   if (!student) {
     return <h3>Loading items...</h3>;
   }

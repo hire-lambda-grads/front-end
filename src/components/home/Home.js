@@ -4,6 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 import ReactMap from '../reactMap/ReactMap';
 import HireVideo from '../../assets/hire-lambda.mp4';
 import Cards from './Cards';
+import Map from '../map/Map';
 
 
 
@@ -47,8 +48,9 @@ class Home extends React.Component {
 						</form>
 					</div>
 				</div>
-				{/* <ReactMap /> */}
-				
+
+				<Map />
+
 				<div className="search-container">
 					{this.state.cards.map(cards => (
 					 <Link to={`/cards/${cards.first_name}-${cards.last_name}`} key={cards.id}>
