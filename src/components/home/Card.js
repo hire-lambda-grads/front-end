@@ -32,7 +32,8 @@ class Profile extends Component {
 						<i className="fab fa-android" />
 					</div>
 				</div>
-			
+				<div className="options-bar">
+				
 				</div>
 				<div className="wrap-card">
 					<div className="content-card">
