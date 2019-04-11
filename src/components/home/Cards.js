@@ -1,13 +1,10 @@
 import React from 'react'
-import { Route, Link, withRouter, browserHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function Cards(props) {
-	console.log('cars from cards', props)
-	const {id, website, first_name, skills, profile_pic, track, relocatable, last_name} = props.cards;
-  
- 
-  
+	const {id, first_name, skills, profile_pic, track, last_name} = props.cards;
+   
   return (
 	<>
 				<div className="card">
@@ -21,7 +18,7 @@ export default function Cards(props) {
 								<hr/>
 								<p>Skills: {skills} JS, React.JS, Python, Node.JS</p>
 								<p>Location: USA</p>
-								<Link to={`/cards/${id}`} className="btn-card" > Lear More ..</Link>
+								<Link to={`/cards/${id}`} className="btn-card" > Learn More ..</Link>
 						</div>
 					</div>
 				</div>

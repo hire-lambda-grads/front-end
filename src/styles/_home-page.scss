@@ -31,6 +31,7 @@ $primary-color: #333;
                 padding: 28px;
                 width: 800px;
                 border-radius: 3px;
+            
 
                 h1 {
                     color: $light-color;
@@ -90,6 +91,7 @@ $primary-color: #333;
             text-decoration: none;
             color: $light-color;
         }
+           
         .card {
             @include dimensions(210px, 370px);
             padding: 10px;
@@ -111,7 +113,7 @@ $primary-color: #333;
                 animation: rotatemagic 0.75s cubic-bezier(0.425, 1.040, 0.470, 1.105) 1s both;
             }
 
-
+            
 
         }
 
@@ -135,18 +137,22 @@ $primary-color: #333;
                 }
 
                 .btn-card {
-                        background-color: $contrast-blue;
-    font-weight: 400;
-    color: #FFFFFF;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    width: 100px;
-    text-align: center;
-    padding: 10px 0;
-    border: none;
-    margin-top: 10px;
-    cursor: pointer;
-    text-decoration: none;
+                    background-color: $contrast-blue;
+                    font-weight: 400;
+                    color: #FFFFFF;
+                    border-radius: 4px;
+                    font-size: 1.2rem;
+                    width: 100px;
+                    text-align: center;
+                    padding: 10px 0;
+                    border: none;
+                    margin-top: 10px;
+                    cursor: pointer;
+                    text-decoration: none;
+                     &:hover {
+                        transform: scale(1.1);
+                        transition: transform 0.5s;
+                    }
                 }
 
                 .img-wrap {
