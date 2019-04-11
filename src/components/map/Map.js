@@ -1,5 +1,5 @@
 import React from "react";
-// import {render} from 'react-dom';
+import {render} from 'react-dom';
 import ReactMapGL, { Marker, Popup, FullscreenControl, NavigationControl } from "react-map-gl";
 
 import STUDENTS from './mapData/sampleData.json';
@@ -29,7 +29,7 @@ class Map extends React.Component {
     this.state = {
       viewport: {
         width: 1000,
-        height: 675,
+        height: 600,
         latitude: 39.788260590328576,
         longitude: -97.77255674948162,
         zoom: 3.5,
@@ -76,7 +76,8 @@ class Map extends React.Component {
     return (
       <ReactMapGL
         {...viewport}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
+		// mapStyle="mapbox://styles/mapbox/dark-v10"
+		mapStyle="mapbox://styles/mapbox/streets-v11"
         onViewportChange={this._updateViewport}
 		mapboxApiAccessToken={MAPBOX_TOKEN}
 		className="react-map"
@@ -98,3 +99,7 @@ class Map extends React.Component {
 }
 
 export default Map;
+
+export function renderToDom(container) {
+	render(<Map/>, container);
+}

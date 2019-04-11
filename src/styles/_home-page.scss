@@ -76,11 +76,6 @@ $primary-color: #333;
         }
     }
 
-    .react-map {
-        margin-left: 5%;
-        margin-right: auto;
-    }
-
     .search-container {
         @include box-align();
         z-index: 8;

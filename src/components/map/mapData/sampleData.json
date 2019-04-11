@@ -2,8 +2,8 @@
   {
     "first_name": "Tico",
     "last_name": "Thepsourinthone",
-    "latitude": 43.82350376662936,
-    "longitude": -83.1801085054985,
+    "latitude": 43.830908182258156,
+    "longitude": -83.2706842970592,
     "postal_code": "48755",
     "city": "Pigeon",
     "state": "Michigan",
@@ -28,5 +28,45 @@
     "city": "Santa Ana",
     "state": "California",
     "image": "https://media.licdn.com/dms/image/C5603AQFLzdUhJ32BiQ/profile-displayphoto-shrink_800_800/0?e=1560384000&v=beta&t=EFeolKWQMXTJGwQx834uKGe0AjrpZ19cvPDNaZ-SwiI"
+  },
+  {
+    "first_name": "Jake",
+    "last_name": "Thomas",
+    "latitude": 41.55925021113276,
+    "longitude": -93.75444640217057,
+    "postal_code": "50061",
+    "city": "West Des Moines",
+    "state": "Iowa",
+    "image": "https://media.licdn.com/dms/image/C4E03AQFkR4JOViu1ew/profile-displayphoto-shrink_800_800/0?e=1560384000&v=beta&t=tmgqcCxcQFNI8VtW6I3owYpEFEK3qIIeenxDtStRvpI"
+  },
+  {
+    "first_name": "Lowell",
+    "last_name": "Richardson",
+    "latitude": 40.11547381025369,
+    "longitude": -111.63890154599396,
+    "postal_code": "84660",
+    "city": "Spanish Fork",
+    "state": "Utah",
+    "image": "https://ca.slack-edge.com/T4JUEB3ME-UBY3DSB0D-1d29263ffa6e-72"
+  },
+  {
+    "first_name": "Ryan",
+    "last_name": "Clark",
+    "latitude": 38.830568158013136,
+    "longitude": -104.82453597160291,
+    "postal_code": "80829",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "image": "https://ca.slack-edge.com/T4JUEB3ME-UEVRGAJ2J-9bef9b22ca95-72"
+  },
+  {
+    "first_name": "Jamie",
+    "last_name": "Goodnight",
+    "latitude": 35.9459445349179,
+    "longitude": -83.91833118857879,
+    "postal_code": "37901",
+    "city": "Knoxville",
+    "state": "Tennessee",
+    "image": "https://media.licdn.com/dms/image/C4E03AQEPtPXlxEKKlw/profile-displayphoto-shrink_800_800/0?e=1560384000&v=beta&t=_YofkWrsFJNlJv2vbeS6ZSPovc4_pWHYHM_qTfJFoMI"
   }
 ]
