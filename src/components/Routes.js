@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom';
 import About from './about/About';
 import Dashboard from './dashboard/Dashboard';
 import Home from './home/Home';
-import Cards from './home/Cards';
 import Login from './login/Login';
 import Signup from './signup/Signup';
 import EditStudentProfile from './dashboard/EditStudentProfile';
@@ -33,13 +32,7 @@ const Routes = props => {
           return <Card {...props} />;
         }}
       />
-       {/* <Route
-        path="/loacation"
-        render={props => {
-          console.log(props);
-          return <Map {...props} />;
-        }}
-      /> */}
+       
       <Route
         path="/about"
         render={props => {

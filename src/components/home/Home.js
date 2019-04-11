@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { withRouter, Link } from 'react-router-dom';
-// import ReactMap from '../reactMap/ReactMap';
+import { withRouter } from 'react-router-dom';
 import HireVideo from '../../assets/hire-lambda.mp4';
 import Cards from './Cards';
 import Map from '../map/Map';
@@ -11,7 +10,8 @@ import Map from '../map/Map';
 class Home extends React.Component {
 
 	state = {
-		cards:[]
+		cards:[],
+	
 	}
 
 	componentDidMount() {
@@ -42,6 +42,7 @@ class Home extends React.Component {
 								type="text"
 								name="search"
 								value=""
+								onChange={this.handelSearch}
 								placeholder="Start your search here"
 							/>
 							<button className="search-btn" type="submit">
@@ -55,17 +56,21 @@ class Home extends React.Component {
 
 				<div className="search-container">
 					{this.state.cards.map(cards => (
-					
-						
-					 <Cards {...this.props} cards={cards}/>
-				
-					
+					 <Cards {...this.props} cards={cards} key={cards.id}/> 
+								
 					)) }
 					</div>
 				
 			</div>
 		);
 	}
+
+handelSearch = e => {
+	e.preventDefault();
+
+
+}
+
 
 }
 
