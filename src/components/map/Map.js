@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReactMap = () => {
+const Map = () => {
 	return (
 		<div>
 			<h1>Super Dope ReactMap Goes Here</h1>
@@ -13,4 +13,4 @@ const ReactMap = () => {
 	);
 };
 
-export default ReactMap;
+export default Map;
