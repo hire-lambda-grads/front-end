@@ -1,15 +1,33 @@
 import React from 'react';
-// import axios from 'axios';
-// import { withRouter, Link } from 'react-router-dom';
+import axios from 'axios';
+import { withRouter, Link } from 'react-router-dom';
 // import ReactMap from '../reactMap/ReactMap';
 import HireVideo from '../../assets/hire-lambda.mp4';
 import Cards from './Cards';
 import Map from '../map/Map';
 
+
+
 class Home extends React.Component {
+
+	state = {
+		cards:[]
+	}
+
+	componentDidMount() {
+		axios
+			.get(`https://halg-backend.herokuapp.com/api/students/cards`)
+			.then(res => {
+				const cards = res.data;
+				this.setState({cards})
+			})
+	}
+
 	render() {
+	
 		return (
 			<div className="home-page">
+						
 				<div className="video-container">
 					<video autoPlay loop muted>
 						<source src={HireVideo} type="video/mp4" />
@@ -29,13 +47,23 @@ class Home extends React.Component {
 						</form>
 					</div>
 				</div>
+
 				<Map />
+
 				<div className="search-container">
-					<Cards />
-				</div>
+					{this.state.cards.map(cards => (
+					 <Link to={`/cards/${cards.id}`} key={cards.id}>
+						
+					 <Cards {...this.props} cards={cards}/>
+				
+					 </Link>
+					)) }
+					</div>
+				
 			</div>
 		);
 	}
+
 }
 
-export default Home;
+export default withRouter(Home);
