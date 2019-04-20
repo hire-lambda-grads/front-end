@@ -1,13 +1,13 @@
 import React from "react";
+import axios from "axios";
 import {render} from 'react-dom';
 import ReactMapGL, { Marker, Popup, FullscreenControl, NavigationControl } from "react-map-gl";
+import zipcodes from 'zipcodes';
 
-import STUDENTS from './mapData/sampleData.json';
 import StudentPin from './student-pin';
 import StudentInfo from './student-info';
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoidGljb3RoZXBzIiwiYSI6ImNqdWRhNmU1NzA1YW40NG10NTVmOTN3bzYifQ.bfS4tIioMohJierkQUueEA";
+const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const fullscreenControlStyle = {
   position: "absolute",
@@ -28,16 +28,36 @@ class Map extends React.Component {
     super(props);
     this.state = {
       viewport: {
-        width: 1000,
-        height: 600,
+        width: "100vw",
+        height: "100vh",
         latitude: 39.788260590328576,
         longitude: -97.77255674948162,
-        zoom: 3.5,
+        zoom: 4,
         bearing: 0,
         pitch: 0
 	  },
-	  popupInfo: null
+    popupInfo: null,
+    students: []
     };
+  }
+
+  async componentDidMount() {
+    let { data } = await axios.get('https://halg-backend.herokuapp.com/api/students/locations')
+    data = data.reduce((arr, student) => {
+      const location =  zipcodes.lookup(Number(student.location))
+      if (location) {
+        arr = [
+          ...arr,
+          {
+          ...location,
+          ...student,
+        }];
+      }
+      return arr;
+    }, [])
+    this.setState({
+      students: data
+    });
   }
 
   _updateViewport = viewport => {
@@ -72,17 +92,17 @@ class Map extends React.Component {
 
   render() {
     const { viewport } = this.state;
-
     return (
       <ReactMapGL
         {...viewport}
-		// mapStyle="mapbox://styles/mapbox/dark-v10"
-		mapStyle="mapbox://styles/mapbox/streets-v11"
+		    mapStyle="mapbox://styles/mapbox/dark-v10"
+		    // mapStyle="mapbox://styles/mapbox/streets-v11"
         onViewportChange={this._updateViewport}
-		mapboxApiAccessToken={MAPBOX_TOKEN}
-		className="react-map"
+        mapboxApiAccessToken={MAPBOX_TOKEN}
+        scrollZoom={false}
+		    className="react-map"
       >
-		{ STUDENTS.map(this._renderStudentMarker) }
+		{ this.state.students.map(this._renderStudentMarker) }
 
 		{this._renderPopup()}
 
