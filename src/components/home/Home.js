@@ -1,36 +1,21 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getData } from '../../store/actions/cardsActions';
+
 import { withRouter } from 'react-router-dom';
 import HireVideo from '../../assets/hire-lambda.mp4';
 import Cards from './Cards';
 import Map from '../map/Map';
 
-
-
 class Home extends React.Component {
-
-	state = {
-		cards:[],
-	
-	}
-
 	componentDidMount() {
-		axios
-			.get(`https://halg-backend.herokuapp.com/api/students/cards`)
-			.then(res => {
-				const cards = res.data;
-				this.setState({cards})
-			})
+		this.props.getData();
+		console.log('fetching', getData);
 	}
 
-
-
-	
 	render() {
-	
 		return (
 			<div className="home-page">
-						
 				<div className="video-container">
 					<video autoPlay loop muted>
 						<source src={HireVideo} type="video/mp4" />
@@ -55,23 +40,28 @@ class Home extends React.Component {
 				<Map />
 
 				<div className="search-container">
-					{this.state.cards.map(cards => (
-					 <Cards {...this.props} cards={cards} key={cards.id}/> 
-								
-					)) }
-					</div>
-				
+					{this.props.cards.map(cards => (
+						<Cards {...this.props} cards={cards} key={cards.id} />
+					))}
+				</div>
 			</div>
 		);
 	}
 
-handelSearch = e => {
-	e.preventDefault();
-
-
+	handelSearch = e => {
+		e.preventDefault();
+	};
 }
 
+const mapStateToProps = state => ({
+	cards: state.cardsReducer.cards,
+	error: state.cardsReducer.error,
+	fetching: state.cardsReducer.fetching
+});
 
-}
-
-export default withRouter(Home);
+export default withRouter(
+	connect(
+		mapStateToProps,
+		{ getData }
+	)(Home)
+);
