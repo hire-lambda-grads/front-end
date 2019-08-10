@@ -1,6 +1,7 @@
 // Variables
 @import './styles/colors-fonts';
 @import './styles/mixins';
+@import './styles/extend';
 
 // General 
 @import './styles/reset';
@@ -8,6 +9,12 @@
 
 // Components
 @import './styles/nav-bar';
+@import './styles/footer';
 @import './styles/home-page';
 @import './styles/login-page';
 @import './styles/singup-page';
+@import './styles/dashboard-page';
+@import './styles/profile-page';
+@import './styles/about-page';
+@import './styles/privacy-page';
+@import './styles/yes-no-button';

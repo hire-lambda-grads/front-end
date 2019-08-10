@@ -1,6 +1,6 @@
-.nav-bar {
+.top-bar {
     @include box-align(space-around, center);
-    padding: 10px;
+    padding: 5px;
     background-color: $light-color;
     position: fixed;
     top: 0;
@@ -13,19 +13,30 @@
         max-width: 150px;
     }
 
-    nav {
-        @include box-align(space-around, center);
+    .btn-red {
+        background-color: $lambda-red;
+        font-weight: 700;
+        color: $light-color;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        width: 80px;
+        text-align: center;
+        padding: 10px 0;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
 
-        a {
-            text-decoration: none;
-            font-size: 1.4rem;
-            padding: 7px 10px;
-            color: $link-color;
+        &:hover {
+            background-color: $contrast-red;
 
-            &.active {
-                border-bottom: 2px solid $lambda-red;
+            .fas {
+                float: right;
+                position: relative;
+                right: 15px;
+                -webkit-transition: float 1s;
+                /* Safari */
+                transition: transform 1s;
             }
-
         }
     }
 

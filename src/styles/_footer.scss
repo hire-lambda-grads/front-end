@@ -1,0 +1,54 @@
+footer {
+    background-color: $lambda-blue;
+    color: $light-color;
+    @include box-align(space-around, center);
+    min-height: 200px;
+
+    nav {
+        width: 30%;
+        @include box-align(space-around, center);
+
+        a {
+            text-decoration: none;
+            font-size: 1.4rem;
+            padding: 7px 10px;
+            color: $light-color;
+
+            &.active {
+                border-bottom: 2px solid $lambda-red;
+            }
+
+            &:hover {
+                color: $lambda-red;
+            }
+
+        }
+    }
+
+    .hl-logo {
+        width: 30%;
+        height: auto;
+        max-width: 150px;
+    }
+
+    .footer-icons {
+
+        @include box-align(space-around, center);
+        width: 30%;
+
+        .icons-container {
+            a {
+                color: $light-color;
+                font-size: 20px;
+                cursor: pointer;
+                margin: 5px 10px;
+
+                &:hover {
+                    color: $contrast-blue;
+                }
+            }
+
+        }
+
+    }
+}

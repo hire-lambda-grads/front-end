@@ -20,3 +20,13 @@ $primary-color: #333;
     justify-content: $justify;
     align-items: $items;
 }
+
+@mixin animated($timein: null, $delay: null) {
+    transition: all $timein ease-in-out;
+    transition-delay: $delay;
+}
+
+@mixin dimensions($width: null, $height: null) {
+    width: $width;
+    min-height: $height;
+}
