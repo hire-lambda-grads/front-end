@@ -4,6 +4,12 @@
 $primary-color: #333;
 */
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -20,28 +26,19 @@ h1 {
     /* Sass - Test delete it anytime */
 }
 
-.btn-red {
-    background-color: $lambda-red;
+
+.btn-blue {
+    background-color: $lambda-blue;
     font-weight: 700;
     color: $light-color;
     border-radius: 4px;
     font-size: 1.2rem;
-    padding: 14px 22px;
+    padding: 10px 22px;
     border: none;
     cursor: pointer;
+    text-decoration: none;
 
     &:hover {
-        background-color: $contrast-red;
-
-        .fas {
-            transform: rotate(90deg);
-            -webkit-transition: transform 1s;
-            /* Safari */
-            transition: transform 1s;
-        }
+        background-color: $contrast-blue;
     }
-}
-
-main {
-    padding-top: 70px;
 }
